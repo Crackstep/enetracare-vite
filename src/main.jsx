@@ -10,6 +10,7 @@ import Services from './components/Services/Services.jsx'
 import Patients from './components/Patients/Patients.jsx'
 import Testimonials from './components/Testimonials/Testimonials.jsx'
 import Contact from './components/Contact/ContactUs.jsx'
+import Tips from './components/Tips/Tips.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,7 +18,8 @@ const router = createBrowserRouter(
       <Route path='' element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='services' element={<Services />} />
-      <Route path='patient-resources' element={<Patients />} />
+      <Route path='patient-resources' element={<Patients />} ></Route>
+      <Route path='tips' element={<Tips />} />
       <Route path='testimonials' element={<Testimonials />} />
       <Route path='contact-us' element={<Contact />} />
     </Route>
@@ -26,6 +28,6 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )

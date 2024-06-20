@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Header() {
+  const [display, setDisplay] = useState('flex')
   return (
     <div className='flex items-center justify-around py-3 bg-teal-700 text-white'>
       <div className='flex items-center gap-2'>
@@ -15,11 +16,11 @@ function Header() {
       </div>
 
 
-      <div className='text-md'>
+      <div className='text-md flex'>
         <Link className='px-2' to='/'>Home</Link>
         <Link className='px-2' to='/about'>About</Link>
         <Link className='px-2' to='/services'>Services</Link>
-        <Link className='px-2' to='/patient-resources'>Patient</Link>
+        <Link className='px-2' to='/patient-resources'>Patients</Link>
         <Link className='px-2' to='/testimonials'>Testimonials</Link>
         <Link className='px-2' to='/contact-us'>Contact Us</Link>
       </div>
