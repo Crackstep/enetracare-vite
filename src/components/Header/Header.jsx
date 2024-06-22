@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Dropdown from './Dropdown'
 
 function Header() {
   const [display, setDisplay] = useState('flex')
@@ -17,12 +18,13 @@ function Header() {
 
 
       <div className='text-md flex'>
-        <Link className='px-2' to='/'>Home</Link>
-        <Link className='px-2' to='/about'>About</Link>
-        <Link className='px-2' to='/services'>Services</Link>
-        <Link className='px-2' to='/patient-resources'>Patients</Link>
-        <Link className='px-2' to='/testimonials'>Testimonials</Link>
-        <Link className='px-2' to='/contact-us'>Contact Us</Link>
+        <Link className='px-3' to='/'>Home</Link>
+        <Link className='px-3' to='/about'>About</Link>
+        <Link className='px-3' to='/services'>Services</Link>
+        {/* <Link className='px-2' to='/patient-resources'>Patients</Link> */}
+        <Dropdown />
+        <Link className='px-3' to='/testimonials'>Testimonials</Link>
+        <Link className='px-3' to='/contact-us'>Contact Us</Link>
       </div>
     </div>
   )
