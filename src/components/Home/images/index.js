@@ -4,7 +4,6 @@ import image3 from './img-3.jpeg'
 import image4 from './img-4.jpeg'
 
 
-
 const IMAGES = {
     image1,
     image2,
