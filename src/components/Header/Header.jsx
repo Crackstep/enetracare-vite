@@ -61,7 +61,7 @@ function Header() {
           <Link className='px-3' to='/about'>About</Link>
           <Link className='px-3' to='/services'>Services</Link>
           <Link className='px-3' to='/testimonials'>Cataract</Link>
-          <Link className='px-3' to='/resources'>Patient Resources</Link>
+          <Link className='px-3' to='/patient-resources'>Patient Resources</Link>
           <Link className='px-3' to='/testimonials'>Testimonials</Link>
           <Link className='px-3' to='/contact-us'>Contact Us</Link>
         </div>
