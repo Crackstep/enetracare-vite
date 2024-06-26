@@ -23,7 +23,8 @@ function Home() {
           <img src={eyeMask} alt="eye-mask" className='w-auto' />
         </div>
       </div>
-      <hr />
+      <div className="divider px-8 bg-[#DFF7F9] m-0 p-0 divider-success"></div>
+
       <div className='h-[200px] flex items-center justify-center bg-[#DFF7F9]'>
         <h1 className='text-6xl text-center py-4 text-green-900'> Vision for All</h1>
       </div>
@@ -45,7 +46,6 @@ function Home() {
         </div>
       </div>
 
-      <hr />
 
       <div className='h-[800px] bg-green-50 flex flex-col items-center p-20'>
         <h1 className='text-5xl text-gray-800'>Our Services</h1>

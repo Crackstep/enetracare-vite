@@ -1,7 +1,7 @@
 @keyframes appear {
     from {
         opacity: 0;
-        transform: translate(200px);
+        transform: translate(100px);
         clip-path: inset(100% 0 0 100%);
     }
 
