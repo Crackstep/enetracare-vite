@@ -23,26 +23,26 @@ function Home() {
           <img src={eyeMask} alt="eye-mask" className='w-auto' />
         </div>
       </div>
-      <div className="divider px-8 bg-[#DFF7F9] m-0 p-0 divider-success"></div>
+      <div className="divider px-8 bg-[#FFF] h-0 m-0 p-0 divider-success"></div>
 
-      <div className='h-[200px] flex items-center justify-center bg-[#DFF7F9]'>
+      <div className='h-[200px] flex items-center justify-center bg-[#FFFFFF]'>
         <h1 className='text-6xl text-center py-4 text-green-900'> Vision for All</h1>
       </div>
       <div className="h-2/5 flex justify-center items-center">
         <CarouselDefault />
       </div>
 
-      <div className='flex items-center justify-center bg-white px-24 py-32 gap-8'>
+      <div className='flex items-center justify-center bg-white px-24 py-32 gap-16'>
         <div className='w-3/5'>
           {/* textcontainer */}
           <h1 className='text-5xl text-green-800 py-2'>About eNetraCare</h1>
-          <p className='text-lg text-gray-700'>eNetraCare by <Link to='/contact-us' style={{ color: 'green' }}> Innovease India Private Limited</Link>  offers an affordable, portable eye care solution that brings vision testing and cataract screening to patients' doorsteps. Using a mobile app integrated with an AI-based Software, We address challenges like transportation, healthcare worker availability and data precision, focusing on underserved rural and slum areas in India.
+          <p className='text-xl text-gray-700'>eNetraCare by <Link to='/contact-us' style={{ color: 'green' }}> Innovease India Private Limited</Link>  offers an affordable, portable eye care solution that brings vision testing and cataract screening to patients' doorsteps. Using a mobile app integrated with an AI-based Software, We address challenges like transportation, healthcare worker availability and data precision, focusing on underserved rural and slum areas in India.
           </p>
         </div>
 
         <div className=''>
           {/* imgcontainer */}
-          <img src={AboutImg} className='max-h-[48vh] rounded-md' id='intro-img' alt="about-img.jpg" />
+          <img src={AboutImg} className='max-h-[48vh] rounded-md hover:scale-110 hover:duration-300 shadow-xl'  id='intro-img' alt="about-img.jpg" />
         </div>
       </div>
 
