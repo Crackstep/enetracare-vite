@@ -1,0 +1,121 @@
+.contact-container {
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    padding: 0 50px;
+    height: 100%;
+    color: green;
+    background-color: white;
+    font-style: normal;
+}
+
+.contact-page {
+    height: 80vh;
+}
+
+.contact-img {
+    max-height: 400px;
+    height: auto;
+    margin: 10% 0;
+}
+
+.contact-img-container {
+
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .contact-container .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    #company-name{
+        margin-bottom: 10px;
+        text-decoration: underline;
+        font-size: 2rem;
+    }
+
+
+    .email-details {
+        margin: 30px 0;
+    }
+
+    .email-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 880px) {
+        #company-name {
+            font-size: 3vw;
+        }
+
+        .contact-details,
+        .email-list a {
+            font-size: 2vw;
+        }
+
+        #email-title {
+            font-size: 2.5vw;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .contact-container {
+            align-items: center;
+        }
+    }
+}
+
+.contact-container address {
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.contact-container a {
+    display: block;
+    margin-top: 0.5rem;
+    color: #004080;
+    text-decoration: none;
+}
+
+.contact-container a:hover {
+    text-decoration: underline;
+}
+
+.google-map-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4% 0;
+    width: 50%;
+    height: 400px;
+    /* height: 100%; */
+    /* margin-left: 2rem; */
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-container .row,
+    .google-map-container {
+        width: 100%;
+    }
+
+    .google-map-container {
+        margin-left: 0;
+        max-height: 700px;
+        height: auto;
+        margin-top: 2rem;
+    }
+}
