@@ -6,7 +6,7 @@ import BeforeAfterImage from './images/mask-2.svg';  // Replace with the path to
 
 function AboutUs() {
   return (
-    <div className="bg-white py-12 relative overflow-hidden h-screen">
+    <div className="bg-white py-12 relative overflow-hidden min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="flex flex-col items-center justify-center">
             <img src={EyeImage} alt="Eye" className="w-80 lg:w-[30rem] absolute top-10 left-0 object-cover" />

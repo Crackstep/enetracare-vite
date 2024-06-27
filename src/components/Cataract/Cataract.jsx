@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Testimonials() {
+function Cataract() {
   return (
     <div className="min-h-screen">
-      testimonials
+      Cataract
     </div>
   )
 }
 
-export default Testimonials
+export default Cataract

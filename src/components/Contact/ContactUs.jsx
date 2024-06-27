@@ -3,7 +3,7 @@ import './ContactCSS.css'
 
 function ContactUs() {
   return (
-    <div className="contact-page bg-white  p-4">
+    <div className="contact-page bg-white min-h-screen p-4">
       <div className="contact-container gap-4 flex items-center justify-around py-[4%]">
         <div className="left row text-[#166b16]">
           <div className="address-box">
