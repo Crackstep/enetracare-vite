@@ -1,11 +1,11 @@
 import React from 'react'
-// import './ContactCSS.css'
+import './ContactCSS.css'
 
 function ContactUs() {
   return (
-    <div className="contact-page bg-white h-[80vh]">
-      <div className="contact-container flex items-center justify-around py-[4%]">
-        <div className="left text-[#166b16]">
+    <div className="contact-page bg-white  p-4">
+      <div className="contact-container gap-4 flex items-center justify-around py-[4%]">
+        <div className="left row text-[#166b16]">
           <div className="address-box">
             <h1 id="company-name" className="text-3xl font-semibold">Innovease India Private Limited</h1>
             <div className="address-text px-[5px]">
@@ -20,8 +20,8 @@ function ContactUs() {
           <div className='email-details my-8'>
             <div id='email-title' className='text-2xl font-semibold'>Email <i className="fa-regular fa-envelope"></i></div>
             <div className="email-list flex flex-col px-[5px]">
-              <a href="mailto:#"> innoveaseindia@rediffmail.com </a>
-              <a href="mailto:#"> aabhamaikar1982@gmail.com</a>
+              <a href="mailto:#" className='hover:underline'> innoveaseindia@rediffmail.com </a>
+              <a href="mailto:#" className='hover:underline'> aabhamaikar1982@gmail.com</a>
             </div>
           </div>
 
