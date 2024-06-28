@@ -18,3 +18,30 @@
     animation-range: entry 0% cover 40%;
 }
 
+
+/* -------------------------------------------------------Feedback section-------------------------------------------------------- */
+
+.container-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    overflow-x: scroll;
+}
+.container::-webkit-scrollbar{
+    display: none;
+}
+
+.container div{
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    grid-gap: 10px;
+    padding: 10px;
+    flex: none;
+}
+.container div img{
+    width: 100%;
+}

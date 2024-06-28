@@ -6,6 +6,8 @@ import serviceImg from './service-img1.jpeg'
 import eyeImg from './eye-image2.jpeg'
 import prodImg from './product-img2.jpg'
 import AbhayPic from './AbhayPic.jpg'
+import Left from './chevron-left.svg'
+import Right from './chevron-right.svg'
 
 
 const IMAGES = {
@@ -16,7 +18,9 @@ const IMAGES = {
     serviceImg,
     eyeImg,
     prodImg,
-    AbhayPic
+    AbhayPic,
+    Left,
+    Right
 }
 
 export default IMAGES

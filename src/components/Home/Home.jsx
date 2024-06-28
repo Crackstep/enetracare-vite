@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 // import Carousel from './Carousel';
 import eyeMask from './images/eye-mask.svg';
 import { CarouselDefault } from './CarouselDefault';
@@ -7,8 +7,13 @@ import IMAGES from './images/index';
 import './HomeCustomCSS.css'
 import { Link } from 'react-router-dom';
 import AboutImg from './images/about-img.jpeg'
+import FeedbackCard from './FeedbackCard';
 
 function Home() {
+
+  const scrollContainer = document.querySelector('.container')
+  const containerRef = useRef()
+
   return (
     <div className=''>
       <div className='h-screen -mt-20 bg-[#DFF7F9] flex flex-col-reverse px-[5%] lg:flex-row justify-center items-center'>
@@ -62,7 +67,7 @@ function Home() {
 
       {/* founders message section  */}
       <div className='flex items-center justify-around p-10 mb-40 mt-10'>
-        <div className="left w-3/6 relative">
+        <div className="left w-2/5 relative">
           <div id="founder-msg">
             <h1 className='text-5xl text-green-900 font-semibold'><span className='text-8xl font-customFont rotate-180 '>''</span>Founder's Message</h1>
             <p className='text-lg text-green-800 p-3 inline-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, earum sed eveniet dolor laborum necessitatibus aliquam nulla culpa impedit consequatur vero blanditiis hic obcaecati minus in! Necessitatibus quos voluptas, ipsum ipsa velit culpa eveniet eum id alias doloribus recusandae quaerat ratione hic fugit soluta? Odio voluptatem praesentium id blanditiis eum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dicta et incidunt perspiciatis, architecto possimus dolores quae reiciendis magnam ab.<span className='text-4xl font-bold font-customFont rotate-180 '>''</span></p>
@@ -70,20 +75,72 @@ function Home() {
           <div id="founder-name " className='text-end text-xl my-3'>
             <p>- Founder name </p>
             <p className='italic text-sm'>Co-founder, eNetraCare</p>
-            </div>
+          </div>
         </div>
         <div className="right">
           <img src={IMAGES.AbhayPic} className='max-h-[400px] h-auto' />
         </div>
       </div>
 
-      {/* testimionials section */}
-      <div>
-        <h1>Testimonials</h1>
-        <div>
+      {/* <div className="divider divider-success px-4 m-0 py-0 h-[2px] rounded-xl"></div> */}
 
+      {/* testimionials section */}
+      <div className='flex bg-[#DFF7F9] flex-col px-4 py-8 '>
+        <h1 className='text-5xl text-[#017F84] py-6 text-center'>Patient feedback </h1>
+
+        <Link to='/testimonials' className='text-lg text-end mr-24 text-[#017F84] hover:underline'> See more</Link>
+        <div className="container-wrap">
+          <img src={IMAGES.Left} id="back-btn"
+            onClick={() => {
+              scrollContainer.style.scrollBehavior = "smooth";
+              scrollContainer.scrollLeft -= 900;
+            }}
+            alt="" className='px-4 h-10 cursor-pointer' />
+
+          <div className="container"
+            onWheel={(e) => {
+              e.preventDefault();
+              scrollContainer.scrollLeft += e.deltaY;
+              scrollContainer.style.scrollBehavior = "smooth";
+            }}
+            ref={containerRef}>
+            <div>
+              <span><FeedbackCard
+                feedBackText='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis officia architecto, quae hic neque quos alias expedita qui porro tempora.'
+                name='Name' /></span>
+              <span><FeedbackCard
+                feedBackText='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis officia architecto, quae hic neque .'
+                name='Name' /></span>
+              <span><FeedbackCard
+                feedBackText='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis officia architecto, quae hic neque quos alias expedita qui porro tempora psum dolor sit amet consectetur adipisicing elit..'
+                name='Name' /></span>
+            </div>
+
+            <div>
+              <span><FeedbackCard
+                feedBackText='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis officia architecto, quae hic neque quos alias expedita qui porro tempora.'
+                name='Name' /></span>
+              <span><FeedbackCard
+                feedBackText='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis officia architecto, quae hic neque .'
+                name='Name' /></span>
+              <span><FeedbackCard
+                feedBackText='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis officia architecto, quae hic neque quos alias expedita qui porro tempora psum dolor sit amet consectetur adipisicing elit..'
+                name='Name' /></span>
+            </div>
+          </div>
+
+          <img
+            src={IMAGES.Right}
+            onClick={() => {
+              containerRef.style.scrollBehavior = "smooth";
+              containerRef.scrollLeft += 900;
+            }}
+            alt=""
+            className='px-4 h-10 cursor-pointer'
+          />
         </div>
       </div>
+
     </div>
   );
 }
