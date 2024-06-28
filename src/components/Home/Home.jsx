@@ -3,7 +3,7 @@ import React from 'react';
 import eyeMask from './images/eye-mask.svg';
 import { CarouselDefault } from './CarouselDefault';
 import ServiceCard from './ServiceCard';
-import IMAGES from './images';
+import IMAGES from './images/index';
 import './HomeCustomCSS.css'
 import { Link } from 'react-router-dom';
 import AboutImg from './images/about-img.jpeg'
@@ -50,10 +50,13 @@ function Home() {
       <div className='h-[800px] bg-green-50 flex flex-col items-center p-20'>
         <h1 className='text-5xl text-gray-800'>Our Services</h1>
         <div className="divider px-20 divider-success"></div>
-        <div className="cards grid grid-cols-3 gap-4">
-          <ServiceCard />
-          <ServiceCard />
-          <ServiceCard />
+        <div className="cards grid grid-cols-3 gap-8">
+          <ServiceCard img={IMAGES.serviceImg} 
+                        text='Rural-to-Rural Cataract Screening'/>
+          <ServiceCard img={IMAGES.eyeImg} 
+                        text='Immediate Cataract Health Status'/>
+          <ServiceCard img={IMAGES.prodImg} 
+                        text='Quick, Sharp Eye Imaging for Cataracts'/>
         </div>
       </div>
     </div>
