@@ -50,6 +50,11 @@ function Home() {
       <div className='h-[800px] bg-green-50 flex flex-col items-center p-20'>
         <h1 className='text-5xl text-gray-800'>Our Services</h1>
         <div className="divider px-20 divider-success"></div>
+        <div className="cards grid grid-cols-3 gap-4">
+          <ServiceCard />
+          <ServiceCard />
+          <ServiceCard />
+        </div>
       </div>
     </div>
   );
