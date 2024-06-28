@@ -5,6 +5,7 @@ import NavbarLogo from './images/navbar-logo.svg';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -13,6 +14,11 @@ function Header() {
 
   const closeMenu = () => {
     setIsOpen(false);
+    setIsSubmenuOpen(false);
+  };
+
+  const toggleSubmenu = () => {
+    setIsSubmenuOpen(!isSubmenuOpen);
   };
 
   const variants = {
@@ -32,8 +38,8 @@ function Header() {
     closed: { opacity: 0, y: -20 },
   };
 
-  const getNavLinkClass = (path) => {
-    return location.pathname === path
+  const getNavLinkClass = (path1,path2) => {
+    return location.pathname === path1 ||location.pathname === path2
       ? 'bg-white text-[#0E9298] font-semibold transition-all duration-300 ease-in-out transform px-4 py-2 rounded-lg shadow-md'
       : 'transition-all duration-600 ease-in-out transform px-4 py-2 rounded-lg';
   };
@@ -61,7 +67,21 @@ function Header() {
           <Link className={`px-3 ${getNavLinkClass('/')}`} to='/'>Home</Link>
           <Link className={`px-3 ${getNavLinkClass('/about')}`} to='/about'>About</Link>
           <Link className={`px-3 ${getNavLinkClass('/services')}`} to='/services'>Services</Link>
-          <Link className={`px-3 ${getNavLinkClass('/patient-resources')}`} to='/patient-resources'>Patient Resources</Link>
+          <div className='relative'>
+            <button
+              className={`px-3 ${getNavLinkClass('/patient-resources/tips','/patient-resources/news')}`}
+              onClick={toggleSubmenu}
+            >
+              Patient Resources
+            </button>
+            {isSubmenuOpen && (
+              <div className='absolute left-0 mt-2 z-20 w-48 bg-white rounded-md shadow-lg border border-[#0E9298]'>
+                <Link className={`block px-4 py-2 ${location.pathname==="/patient-resources/tips"?"font-semibold":"font-medium"} text-[#0E9298] hover:bg-[#DFF7F9] hover:text-[#0E9298] transition-all duration-300`} to='/patient-resources/tips' onClick={closeMenu}>Tips</Link>
+                <hr />
+                <Link className={`block px-4 py-2 ${location.pathname==="/patient-resources/news"?"font-semibold":"font-medium"} text-[#0E9298] hover:bg-[#DFF7F9] hover:text-[#0E9298] transition-all duration-300`} to='/patient-resources/news' onClick={closeMenu}>News</Link>
+              </div>
+            )}
+          </div>
           <Link className={`px-3 ${getNavLinkClass('/testimonials')}`} to='/testimonials'>Testimonials</Link>
           <Link className={`px-3 ${getNavLinkClass('/contact-us')}`} to='/contact-us'>Contact Us</Link>
         </div>
@@ -84,9 +104,27 @@ function Header() {
             <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/services"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
               <Link to='/services' onClick={closeMenu}>Services</Link>
             </motion.div>
-           
-            <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/patient-resources"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
-              <Link to='/patient-resources' onClick={closeMenu}>Patient Resources</Link>
+            
+            <motion.div className={`w-10/12 text-center ${location.pathname==="/patient-resources/news"||location.pathname==="/patient-resources/tips"?"bg-white text-[#0E9298] font-semibold transition-all duration-300 ease-in-out transform":""} bg-white rounded-3xl m-1 py-2`} onClick={toggleSubmenu}>
+              <div>Patient Resources</div>
+              <AnimatePresence>
+                {isSubmenuOpen && (
+                  <motion.div
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={variants}
+                    className='w-full flex flex-col z-10 items-center'
+                  >
+                    <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/patient-resources/tips"?"font-semibold":"font-medium"} text-center bg-white rounded-3xl m-1 py-2`}>
+                      <Link to='/patient-resources/tips' onClick={closeMenu}>Tips</Link>
+                    </motion.div>
+                    <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/patient-resources/news"?"font-semibold":"font-medium"} text-center bg-white rounded-3xl m-1 py-2`}>
+                      <Link to='/patient-resources/news' onClick={closeMenu}>News</Link>
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
             <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/testimonials"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
               <Link to='/testimonials' onClick={closeMenu}>Testimonials</Link>

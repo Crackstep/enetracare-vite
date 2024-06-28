@@ -2,7 +2,7 @@ import React from 'react'
 
 function Tips() {
   return (
-    <div>
+    <div className="min-h-screen" >
       Tips page
     </div>
   )
