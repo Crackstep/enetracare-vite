@@ -27,19 +27,10 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
-      // keyframes: {
-      //   appear: {
-      //     '0%': { opacity: '0',
-      //             transform: 'translateX(200px)'
-      //      },
-      //     '100%': { opacity: '1',
-      //             transform: 'translateX(0px)'
-      //      }
-      //   },
-      // },
-      // animation: {
-      //   'text-appear': 'appear linear view()' 
-      // }
+      fontFamily: {
+        customFont: ['"News Cycle"', "sans-serif"],
+        // Add more custom font families as needed
+      },
     },
   },
   plugins: [

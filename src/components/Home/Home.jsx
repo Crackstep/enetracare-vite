@@ -42,7 +42,7 @@ function Home() {
 
         <div className=''>
           {/* imgcontainer */}
-          <img src={AboutImg} className='max-h-[48vh] rounded-md hover:scale-110 hover:duration-300 shadow-xl'  id='intro-img' alt="about-img.jpg" />
+          <img src={AboutImg} className='max-h-[48vh] rounded-md hover:scale-110 hover:duration-300 shadow-xl' id='intro-img' alt="about-img.jpg" />
         </div>
       </div>
 
@@ -51,18 +51,30 @@ function Home() {
         <h1 className='text-5xl text-green-800 font-semibold'>Our Services</h1>
         <div className="divider px-20 divider-success"></div>
         <div className="cards grid grid-cols-3 gap-8">
-          <ServiceCard img={IMAGES.serviceImg} 
-                        text='Rural-to-Rural Cataract Screening'/>
-          <ServiceCard img={IMAGES.eyeImg} 
-                        text='Immediate Cataract Health Status'/>
-          <ServiceCard img={IMAGES.prodImg} 
-                        text='Quick, Sharp Eye Imaging for Cataracts'/>
+          <ServiceCard img={IMAGES.serviceImg}
+            text='Rural-to-Rural Cataract Screening' />
+          <ServiceCard img={IMAGES.eyeImg}
+            text='Immediate Cataract Health Status' />
+          <ServiceCard img={IMAGES.prodImg}
+            text='Quick, Sharp Eye Imaging for Cataracts' />
         </div>
       </div>
 
       {/* founders message section  */}
-      <div>
-        <h1>Founder's message</h1>
+      <div className='flex items-center justify-around p-10 mb-40 mt-10'>
+        <div className="left w-3/6 relative">
+          <div id="founder-msg">
+            <h1 className='text-5xl text-green-900 font-semibold'><span className='text-8xl font-customFont rotate-180 '>''</span>Founder's Message</h1>
+            <p className='text-lg text-green-800 p-3 inline-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, earum sed eveniet dolor laborum necessitatibus aliquam nulla culpa impedit consequatur vero blanditiis hic obcaecati minus in! Necessitatibus quos voluptas, ipsum ipsa velit culpa eveniet eum id alias doloribus recusandae quaerat ratione hic fugit soluta? Odio voluptatem praesentium id blanditiis eum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dicta et incidunt perspiciatis, architecto possimus dolores quae reiciendis magnam ab.<span className='text-4xl font-bold font-customFont rotate-180 '>''</span></p>
+          </div>
+          <div id="founder-name " className='text-end text-xl my-3'>
+            <p>- Founder name </p>
+            <p className='italic text-sm'>Co-founder, eNetraCare</p>
+            </div>
+        </div>
+        <div className="right">
+          <img src={IMAGES.AbhayPic} className='max-h-[400px] h-auto' />
+        </div>
       </div>
 
       {/* testimionials section */}
