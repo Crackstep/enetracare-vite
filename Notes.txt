@@ -246,3 +246,11 @@ CSS
     }
 }
 
+
+about enetracare responsive
+redirect to beginning of page
+About us page
+add founder's message and testimonials
+navbar issue
+tips and news
+footer completion

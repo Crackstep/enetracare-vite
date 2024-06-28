@@ -59,6 +59,19 @@ function Home() {
                         text='Quick, Sharp Eye Imaging for Cataracts'/>
         </div>
       </div>
+
+      {/* founders message section  */}
+      <div>
+        <h1>Founder's message</h1>
+      </div>
+
+      {/* testimionials section */}
+      <div>
+        <h1>Testimonials</h1>
+        <div>
+
+        </div>
+      </div>
     </div>
   );
 }
