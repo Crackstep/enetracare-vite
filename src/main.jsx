@@ -20,7 +20,6 @@ const router = createBrowserRouter(
       <Route path='about' element={<About />} />
       <Route path='services' element={<Services />} />
       <Route path='patient-resources' element={<Patients />} ></Route>
-      <Route path='cataract' element={<Cataract />} ></Route>
       <Route path='tips' element={<Tips />} />
       <Route path='testimonials' element={<Testimonials />} />
       <Route path='contact-us' element={<Contact />} />

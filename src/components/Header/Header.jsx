@@ -61,7 +61,6 @@ function Header() {
           <Link className={`px-3 ${getNavLinkClass('/')}`} to='/'>Home</Link>
           <Link className={`px-3 ${getNavLinkClass('/about')}`} to='/about'>About</Link>
           <Link className={`px-3 ${getNavLinkClass('/services')}`} to='/services'>Services</Link>
-          <Link className={`px-3 ${getNavLinkClass('/cataract')}`} to='/cataract'>Cataract</Link>
           <Link className={`px-3 ${getNavLinkClass('/patient-resources')}`} to='/patient-resources'>Patient Resources</Link>
           <Link className={`px-3 ${getNavLinkClass('/testimonials')}`} to='/testimonials'>Testimonials</Link>
           <Link className={`px-3 ${getNavLinkClass('/contact-us')}`} to='/contact-us'>Contact Us</Link>
@@ -85,9 +84,7 @@ function Header() {
             <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/services"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
               <Link to='/services' onClick={closeMenu}>Services</Link>
             </motion.div>
-            <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/cataract"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
-              <Link to='/cataract' onClick={closeMenu}>Cataract</Link>
-            </motion.div>
+           
             <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/patient-resources"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
               <Link to='/patient-resources' onClick={closeMenu}>Patient Resources</Link>
             </motion.div>

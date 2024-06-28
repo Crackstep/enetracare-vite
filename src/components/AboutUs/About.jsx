@@ -9,7 +9,7 @@ function AboutUs() {
     <div className="bg-white py-12 relative overflow-hidden min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="flex flex-col items-center justify-center">
-            <img src={EyeImage} alt="Eye" className="w-80 lg:w-[30rem] absolute top-10 left-0 object-cover" />
+            <img src={EyeImage} alt="Eye" className="max-w-80 w-auto absolute top-10 left-0 object-cover" />
           </div>
           <div className="flex flex-col justify-center text-center md:text-left">
             <h2 className="text-2xl font-bold text-[#0E9298] mb-4">ABOUT US</h2>
@@ -32,8 +32,8 @@ function AboutUs() {
               Know more <span className="ml-2">&rarr;</span>
             </Link>
           </div>
-            <img src={DoctorImage} alt="Doctor" className="w-80 lg:w-[30rem] absolute object-cover right-0 mb-4 lg:mb-0" />
-            <img src={BeforeAfterImage} alt="Before and After" className="w-80 lg:w-[30rem] absolute bottom-0 object-cover" />
+            <img src={DoctorImage} alt="Doctor" className="max-w-80 w-auto absolute object-cover right-0 mb-4 lg:mb-0" />
+            <img src={BeforeAfterImage} alt="Before and After" className="max-w-80 w-auto absolute bottom-0 object-cover" />
         </div>
     </div>
   );
