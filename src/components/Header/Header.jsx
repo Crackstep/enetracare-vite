@@ -76,8 +76,11 @@ function Header() {
             </button>
             {isSubmenuOpen && (
               <div className='absolute left-0 mt-2 z-20 w-48 bg-white rounded-md shadow-lg border border-[#0E9298]'>
+                <Link className={`block px-4 py-2 ${location.pathname==="/patient-resources/disorder"?"font-semibold":"font-medium"} text-[#0E9298] hover:bg-[#DFF7F9] hover:text-[#0E9298] transition-all duration-300`} to='/patient-resources/disorder' onClick={closeMenu}>Disorder</Link>
+                <hr />
                 <Link className={`block px-4 py-2 ${location.pathname==="/patient-resources/tips"?"font-semibold":"font-medium"} text-[#0E9298] hover:bg-[#DFF7F9] hover:text-[#0E9298] transition-all duration-300`} to='/patient-resources/tips' onClick={closeMenu}>Tips</Link>
                 <hr />
+                
                 <Link className={`block px-4 py-2 ${location.pathname==="/patient-resources/news"?"font-semibold":"font-medium"} text-[#0E9298] hover:bg-[#DFF7F9] hover:text-[#0E9298] transition-all duration-300`} to='/patient-resources/news' onClick={closeMenu}>News</Link>
               </div>
             )}

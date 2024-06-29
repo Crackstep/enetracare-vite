@@ -11,6 +11,7 @@ import Testimonials from './components/Testimonials/Testimonials.jsx'
 import Contact from './components/Contact/ContactUs.jsx'
 import Tips from './components/Tips/Tips.jsx'
 import News from './components/News/News.jsx'
+import Disorder from './components/Disorder/Disorder.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,8 @@ const router = createBrowserRouter(
       <Route path='services' element={<Services />} />
       <Route path='patient-resources/tips' element={<Tips />} ></Route>
       <Route path='patient-resources/news' element={<News />} ></Route>
+      <Route path='patient-resources/disorder' element={<Disorder />} ></Route>
+
       <Route path='testimonials' element={<Testimonials />} />
       <Route path='contact-us' element={<Contact />} />
     </Route>
