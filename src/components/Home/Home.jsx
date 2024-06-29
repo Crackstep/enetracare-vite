@@ -69,7 +69,7 @@ function Home() {
       <div className='flex items-center justify-around p-10 mb-40 mt-10'>
         <div className="left w-2/5 relative">
           <div id="founder-msg">
-            <h1 className='text-5xl text-green-900 font-semibold'><span className='text-8xl font-customFont rotate-180 '>''</span>Founder's Message</h1>
+            <h1 className='text-5xl text-green-900 font-semibold'><span className='text-8xl transform scale-x-[-1] font-customFont rotate-180'>''</span>Founder's Message</h1>
             <p className='text-lg text-green-800 p-3 inline-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, earum sed eveniet dolor laborum necessitatibus aliquam nulla culpa impedit consequatur vero blanditiis hic obcaecati minus in! Necessitatibus quos voluptas, ipsum ipsa velit culpa eveniet eum id alias doloribus recusandae quaerat ratione hic fugit soluta? Odio voluptatem praesentium id blanditiis eum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dicta et incidunt perspiciatis, architecto possimus dolores quae reiciendis magnam ab.<span className='text-4xl font-bold font-customFont rotate-180 '>''</span></p>
           </div>
           <div id="founder-name " className='text-end text-xl my-3'>
