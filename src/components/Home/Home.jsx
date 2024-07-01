@@ -59,30 +59,33 @@ function Home() {
         <h1 className='text-5xl text-green-800 font-semibold'>Our Services</h1>
         <div className="divider px-20 divider-success"></div>
         <div id='service-home-box'>
-        <div className="cards grid grid-cols-3 gap-8" id='service-home-container' >
-          <div><ServiceCard img={IMAGES.serviceImg}
-            text='Rural-to-Rural Cataract Screening' /></div>
+          <div className="cards grid grid-cols-3 gap-8" id='service-home-container' >
 
-          <div>
-            <ServiceCard img={IMAGES.eyeImg}
-              text='Immediate Cataract Health Status' />
-          </div>
-          <div>
-            <ServiceCard img={IMAGES.prodImg}
-              text='Quick, Sharp Eye Imaging for Cataracts' />
+            <div className='service-card-box'>
+              <ServiceCard img={IMAGES.serviceImg}
+                text='Rural-to-Rural Cataract Screening' />
+            </div>
+
+            <div className='service-card-box'>
+              <ServiceCard img={IMAGES.eyeImg}
+                text='Immediate Cataract Health Status' />
+            </div>
+            <div className='service-card-box'>
+              <ServiceCard img={IMAGES.prodImg}
+                text='Quick, Sharp Eye Imaging for Cataracts' />
+            </div>
           </div>
         </div>
-        </div>
-        
+
       </div>
-      {/* our services starts */}
+      {/* our services ends */}
 
 
       {/* founders message starts  */}
       <div className='flex items-center justify-around p-10 mb-40 mt-10' id='founder-msg-container'>
         <div className="founder-left w-2/5 relative">
           <div id="founder-msg">
-            <h1 className='text-5xl text-green-900 font-semibold'><span className='text-8xl font-customFont'>&#8220;</span> Founder's Message</h1>
+            <h1 className='text-5xl text-green-900 font-semibold founder-msg-title'><span className='text-8xl font-customFont inv-comma'>&#8220;</span> Founder's Message</h1>
             <p className='text-lg text-green-800 p-3 inline-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, earum sed eveniet dolor laborum necessitatibus aliquam nulla culpa impedit consequatur vero blanditiis hic obcaecati minus in! Necessitatibus quos voluptas, ipsum ipsa velit culpa eveniet eum id alias doloribus recusandae quaerat ratione hic fugit soluta? Odio voluptatem praesentium id blanditiis eum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dicta et incidunt perspiciatis, architecto possimus dolores quae reiciendis magnam ab.<span className='text-4xl font-bold font-customFont rotate-180 '>&#8221;</span></p>
           </div>
           <div id="founder-name " className='text-end text-xl my-3'>
@@ -104,16 +107,16 @@ function Home() {
         <Link to='/testimonials' className='text-lg text-end mr-24 text-[#017F84] hover:underline'> See more</Link>
 
         <div className="container-wrap">
-          <img src={IMAGES.Left} id="back-btn"
+          {/* <img src={IMAGES.Left} id="back-btn"
             onClick={() => {
               scrollContainer.style.scrollBehavior = "smooth";
               scrollContainer.scrollLeft -= 900;
             }}
-            alt="" className='px-4 h-10 cursor-pointer' />
+            alt="" className='px-4 h-10 cursor-pointer' /> */}
 
           <div className="container"
             onWheel={(e) => {
-              e.preventDefault();
+              e.preventDefault()
               scrollContainer.scrollLeft += e.deltaY;
               scrollContainer.style.scrollBehavior = "smooth";
             }}
@@ -143,7 +146,7 @@ function Home() {
             </div>
           </div>
 
-          <img
+          {/* <img
             src={IMAGES.Right}
             onClick={() => {
               containerRef.style.scrollBehavior = "smooth";
@@ -151,10 +154,10 @@ function Home() {
             }}
             alt=""
             className='px-4 h-10 cursor-pointer'
-          />
+          /> */}
         </div>
       </div>
-      {/* testimionials starts */}
+      {/* testimionials ends */}
 
     </div>
   );
