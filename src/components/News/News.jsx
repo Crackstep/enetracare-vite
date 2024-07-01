@@ -1,13 +1,28 @@
-import React from 'react';
-import useSWR from 'swr'
+import React, { useEffect, useState } from 'react';
+// import useSWR from 'swr'
 import Loader from '../Loader/Loader';
+import axios from 'axios';
 
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+// const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 function App() {
-    const { data, error, isLoading } = useSWR('https://enetracare-scrapper-server.vercel.app', fetcher)
+    // const { data, error, isLoading } = useSWR('https://enetracare-scrapper-server.vercel.app', fetcher)
 
-    if (error) return <div>failed to load</div>
+    // if (error) return <div>failed to load</div>
+    const [data,setData] = useState([]);
+    const [isLoading,setIsLoading] = useState(true);
+    
+    useEffect(()=>{
+        getNews();
+    },[]);
+    
+    const getNews = async()=>{
+        setIsLoading(true);
+        const news = await axios.get("https://enetracare-scrapper-server.vercel.app");
+        // console.log(news.data);
+        setData(news.data);
+        setIsLoading(false);
+    }
     if (isLoading) return <Loader/>
     return (
         <div className=" mx-[7%] px-4 py-8 min-h-screen">
