@@ -1,0 +1,90 @@
+/* Tips.css */
+.eye-tips-wrapper {
+    background-color: #DFF7F9; /* Set your desired background color */
+    padding: 20px; /* Add padding for spacing */
+  }
+  
+  .hero-image-container {
+    position: relative;
+  }
+  
+  .hero-image {
+    width: 100%;
+    max-height:10%;
+    border-radius: 8px;
+  }
+  
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  #eye-tips-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .tips-content {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .eye-tips-img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  
+  .tips-info {
+    flex: 1;
+  }
+  
+  .tips-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .tips-list li {
+    margin-bottom: 10px;
+  }
+  
+  .articles-container {
+    margin-top: 30px;
+  }
+  
+  .article-item {
+    margin-bottom: 20px;
+  }
+  
+  .article-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .article-item p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .see-more {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Add any other styling rules you'd like */
+  /* ... */
+  
