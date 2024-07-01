@@ -1,11 +1,12 @@
 import React from 'react';
 import './Tips.css'; // Ensure you create this CSS file for styling
+// import News from '../News/News'
 
 const EyeTips = () => {
   return (
     <div className='eye-tips-wrapper'>
       <div className='hero-image-container'>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzfEvGUwsLPY8HvHQWcWOfYiIoZ76D9Fpx8w&s" alt="Eye Care" className='hero-image' />
+        <img src="https://images.unsplash.com/photo-1486768801215-35f4fdd73abc?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGV5ZSUyMGhlYWx0aHxlbnwwfHwwfHx8MA%3D%3D" alt="Eye Care" className='hero-image' />
         <div className='hero-text'>
           <h1 id='eye-tips-title'>Eye Care Tips</h1>
           <p className='hero-subtitle'>Keep your eyes healthy and comfortable with these essential tips.</p>
@@ -13,7 +14,7 @@ const EyeTips = () => {
       </div>
       <div className='eye-tips-container'>
         <div className='tips-content'>
-          <img src="https://st.depositphotos.com/1637787/2579/i/450/depositphotos_25792959-stock-photo-visual-field-test.jpg" alt="Eye Care" className='eye-tips-img' />
+          <img src="https://images.unsplash.com/photo-1614590196476-0c361eb55a91?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGV5ZSUyMGhlYWx0aHxlbnwwfHwwfHx8MA%3D%3D" alt="Eye Care" className='eye-tips-img' />
           <div className='tips-info'>
             <h2>Top Tips for Healthy Eyes</h2>
             <ul className='tips-list'>
@@ -49,6 +50,7 @@ const EyeTips = () => {
           </div>
         </div>
       </div>
+      {/* <div><News/></div> */}
     </div>
   );
 };
