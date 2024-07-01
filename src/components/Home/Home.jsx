@@ -37,7 +37,8 @@ function Home() {
         <CarouselDefault />
       </div>
 
-      <div className='flex items-center justify-center bg-white px-24 py-32 gap-16'>
+      {/* about eNetraCare starts */}
+      <div className='flex items-center justify-center bg-white px-24 py-32 gap-16' id='about-enetracare'>
         <div className='w-3/5'>
           {/* textcontainer */}
           <h1 className='text-5xl text-green-800 py-2'>About eNetraCare</h1>
@@ -50,45 +51,58 @@ function Home() {
           <img src={AboutImg} className='max-h-[48vh] rounded-md hover:scale-110 hover:duration-300 shadow-xl' id='intro-img' alt="about-img.jpg" />
         </div>
       </div>
+      {/* about eNetraCare ends */}
 
 
-      <div className='h-[800px] bg-green-50 flex flex-col items-center p-20'>
+      {/* our services starts */}
+      <div className='h-[800px] bg-green-50 flex flex-col items-center p-20' >
         <h1 className='text-5xl text-green-800 font-semibold'>Our Services</h1>
         <div className="divider px-20 divider-success"></div>
-        <div className="cards grid grid-cols-3 gap-8">
-          <ServiceCard img={IMAGES.serviceImg}
-            text='Rural-to-Rural Cataract Screening' />
-          <ServiceCard img={IMAGES.eyeImg}
-            text='Immediate Cataract Health Status' />
-          <ServiceCard img={IMAGES.prodImg}
-            text='Quick, Sharp Eye Imaging for Cataracts' />
-        </div>
-      </div>
+        <div id='service-home-box'>
+        <div className="cards grid grid-cols-3 gap-8" id='service-home-container' >
+          <div><ServiceCard img={IMAGES.serviceImg}
+            text='Rural-to-Rural Cataract Screening' /></div>
 
-      {/* founders message section  */}
-      <div className='flex items-center justify-around p-10 mb-40 mt-10'>
-        <div className="left w-2/5 relative">
+          <div>
+            <ServiceCard img={IMAGES.eyeImg}
+              text='Immediate Cataract Health Status' />
+          </div>
+          <div>
+            <ServiceCard img={IMAGES.prodImg}
+              text='Quick, Sharp Eye Imaging for Cataracts' />
+          </div>
+        </div>
+        </div>
+        
+      </div>
+      {/* our services starts */}
+
+
+      {/* founders message starts  */}
+      <div className='flex items-center justify-around p-10 mb-40 mt-10' id='founder-msg-container'>
+        <div className="founder-left w-2/5 relative">
           <div id="founder-msg">
-            <h1 className='text-5xl text-green-900 font-semibold'><span className='text-8xl transform scale-x-[-1] font-customFont rotate-180'>''</span>Founder's Message</h1>
-            <p className='text-lg text-green-800 p-3 inline-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, earum sed eveniet dolor laborum necessitatibus aliquam nulla culpa impedit consequatur vero blanditiis hic obcaecati minus in! Necessitatibus quos voluptas, ipsum ipsa velit culpa eveniet eum id alias doloribus recusandae quaerat ratione hic fugit soluta? Odio voluptatem praesentium id blanditiis eum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dicta et incidunt perspiciatis, architecto possimus dolores quae reiciendis magnam ab.<span className='text-4xl font-bold font-customFont rotate-180 '>''</span></p>
+            <h1 className='text-5xl text-green-900 font-semibold'><span className='text-8xl font-customFont'>&#8220;</span> Founder's Message</h1>
+            <p className='text-lg text-green-800 p-3 inline-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, earum sed eveniet dolor laborum necessitatibus aliquam nulla culpa impedit consequatur vero blanditiis hic obcaecati minus in! Necessitatibus quos voluptas, ipsum ipsa velit culpa eveniet eum id alias doloribus recusandae quaerat ratione hic fugit soluta? Odio voluptatem praesentium id blanditiis eum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dicta et incidunt perspiciatis, architecto possimus dolores quae reiciendis magnam ab.<span className='text-4xl font-bold font-customFont rotate-180 '>&#8221;</span></p>
           </div>
           <div id="founder-name " className='text-end text-xl my-3'>
             <p>- Founder name </p>
             <p className='italic text-sm'>Co-founder, eNetraCare</p>
           </div>
         </div>
-        <div className="right">
+        <div className="founder-right">
           <img src={IMAGES.AbhayPic} className='max-h-[400px] h-auto' />
         </div>
       </div>
+      {/* founders message ends */}
 
-      {/* <div className="divider divider-success px-4 m-0 py-0 h-[2px] rounded-xl"></div> */}
 
-      {/* testimionials section */}
+      {/* testimionials starts */}
       <div className='flex bg-[#DFF7F9] flex-col px-4 py-8 '>
         <h1 className='text-5xl text-[#017F84] py-6 text-center'>Patient feedback </h1>
 
         <Link to='/testimonials' className='text-lg text-end mr-24 text-[#017F84] hover:underline'> See more</Link>
+
         <div className="container-wrap">
           <img src={IMAGES.Left} id="back-btn"
             onClick={() => {
@@ -140,6 +154,7 @@ function Home() {
           />
         </div>
       </div>
+      {/* testimionials starts */}
 
     </div>
   );

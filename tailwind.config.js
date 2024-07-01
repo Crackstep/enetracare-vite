@@ -29,6 +29,7 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         customFont: ['"News Cycle"', "sans-serif"],
+        customFont2:["Passion One", 'sans-serif'],
         // Add more custom font families as needed
       },
     },

@@ -21,27 +21,79 @@
 
 /* -------------------------------------------------------Feedback section-------------------------------------------------------- */
 
-.container-wrap{
+.container-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container{
+.container {
     display: flex;
     overflow-x: scroll;
 }
-.container::-webkit-scrollbar{
+
+.container::-webkit-scrollbar {
     display: none;
 }
 
-.container div{
+.container div {
     display: grid;
-    grid-template-columns: auto auto auto ;
+    grid-template-columns: auto auto auto;
     grid-gap: 10px;
     padding: 10px;
     flex: none;
 }
-.container div img{
+
+.container div img {
     width: 100%;
+}
+
+@media (max-width: 950px) {
+    #about-enetracare {
+        flex-direction: column;
+        padding: 30px 4px;
+        gap: 20px;
+        width: 100%;
+    }
+
+    #founder-msg-container{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        /* align-items: center; */
+        padding: 50px;
+        margin: 0;
+    }
+    .founder-left{
+        width: 100%;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 750px) {
+    #service-home-container {
+        display: flex;
+        /* justify-content: center; */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+      }
+      
+      #service-home-container > div {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        min-width: 100%; 
+        box-sizing: border-box;
+        /* padding-left: 40px; */
+      }
+
+      #service-home-container::-webkit-scrollbar {
+        display: block;
+    }
+
+    #service-home-box{
+        display: flex;
+        justify-content: center;
+    }
+
+    
 }
