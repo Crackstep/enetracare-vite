@@ -14,7 +14,7 @@ function Header() {
 
   const closeMenu = () => {
     setIsOpen(false);
-    setIsSubmenuOpen(false);
+    setIsSubmenuOpen((false));
   };
 
   const toggleSubmenu = () => {
@@ -108,10 +108,10 @@ function Header() {
               <Link to='/services' onClick={closeMenu}>Services</Link>
             </motion.div>
             
-            <motion.div className={`w-10/12 text-center ${location.pathname==="/patient-resources/news"||location.pathname==="/patient-resources/tips"?"bg-white text-[#0E9298] font-semibold transition-all duration-300 ease-in-out transform":""} bg-white rounded-3xl m-1 py-2`} onClick={toggleSubmenu}>
+            <motion.div variants={linkVariants} className={`w-10/12 text-center ${location.pathname==="/patient-resources/news"||location.pathname==="/patient-resources/tips"||location.pathname==="/patient-resources/disorder"?"bg-white text-[#0E9298] font-semibold ":""} bg-white rounded-3xl m-1 py-2`} onClick={toggleSubmenu}>
               <div>Patient Resources</div>
-              <AnimatePresence>
                 {isSubmenuOpen && (
+              // <AnimatePresence>
                   <motion.div
                     initial="closed"
                     animate="open"
@@ -119,6 +119,9 @@ function Header() {
                     variants={variants}
                     className='w-full flex flex-col z-10 items-center'
                   >
+                    <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/patient-resources/disorder"?"font-semibold":"font-medium"} text-center bg-white rounded-3xl m-1 py-2`}>
+                      <Link to='/patient-resources/disorder' onClick={closeMenu}>Disorder</Link>
+                    </motion.div>
                     <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/patient-resources/tips"?"font-semibold":"font-medium"} text-center bg-white rounded-3xl m-1 py-2`}>
                       <Link to='/patient-resources/tips' onClick={closeMenu}>Tips</Link>
                     </motion.div>
@@ -126,8 +129,8 @@ function Header() {
                       <Link to='/patient-resources/news' onClick={closeMenu}>News</Link>
                     </motion.div>
                   </motion.div>
-                )}
-              </AnimatePresence>
+              // </AnimatePresence>
+                )} 
             </motion.div>
             <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/testimonials"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
               <Link to='/testimonials' onClick={closeMenu}>Testimonials</Link>
