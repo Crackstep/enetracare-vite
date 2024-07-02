@@ -30,9 +30,9 @@ function ServiceCard({ img, text }) {
                 </h2>
 
                 <Link to='/services' className="flex items-center justify-center " >
-                    <div className='relative text-4xl flex items-center justify-center h-[55px] cursor-pointer w-[55px] !rounded-full  object-center text-center bg-white'
+                    <div className='relative text-4xl flex items-center justify-center h-[55px] cursor-pointer w-[55px] !rounded-full text-center bg-white'
                     id='link-to-services'>
-                        <i className={`fa-solid fa-chevron-right text-black`}></i>
+                        <i className={`fa-solid fa-chevron-right text-black text-2xl`}></i>
                     </div>
                 </Link >
             </div>
