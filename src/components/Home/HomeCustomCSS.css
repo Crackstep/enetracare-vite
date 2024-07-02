@@ -21,27 +21,74 @@
 
 /* -------------------------------------------------------Feedback section-------------------------------------------------------- */
 
-.container-wrap{
+.container-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container{
+.container {
     display: flex;
     overflow-x: scroll;
 }
-.container::-webkit-scrollbar{
+
+.container::-webkit-scrollbar {
     display: none;
 }
 
-.container div{
+.container div {
     display: grid;
-    grid-template-columns: auto auto auto ;
+    grid-template-columns: auto auto auto;
     grid-gap: 10px;
     padding: 10px;
     flex: none;
 }
-.container div img{
+
+.container div img {
     width: 100%;
+}
+
+@media (max-width: 950px) {
+    #about-enetracare {
+        flex-direction: column;
+        padding: 30px 4px;
+        gap: 20px;
+        width: 100%;
+    }
+
+    #founder-msg-container {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        margin: 0;
+    }
+
+    .founder-left {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .founder-msg-title,
+    .inv-comma {
+        font-size: 12vw;
+    }
+    #intro-img{
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 750px) {
+    #link-to-services {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    #service-card{
+        transform: scale(0.9);
+    }
+    #service-body{
+        padding:40px 20px;
+    }
+
 }

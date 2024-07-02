@@ -247,10 +247,13 @@ CSS
 }
 
 
-about enetracare responsive
+about enetracare responsive - done
 redirect to beginning of page
 About us page
-add founder's message and testimonials
-navbar issue
-tips and news
+add founder's message and testimonials - done
+navbar issue - done
+tips and news - done
 footer completion
+
+Install Axios 
+npm i axios
