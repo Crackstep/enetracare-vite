@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import EyeImage from './images/mask-1.svg';  // Replace with the path to your eye image
 import DoctorImage from './images/mask-3.svg';  // Replace with the path to your doctor image
 import BeforeAfterImage from './images/mask-2.svg';  // Replace with the path to your before-after image
+import TeamCard from './TeamCard';
 
 function AboutUs() {
   return (
-    <div className="bg-white py-12 relative overflow-hidden min-h-screen">
+    <div>
+      <div className="bg-white py-12 relative overflow-hidden min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="flex flex-col items-center justify-center">
             <img src={EyeImage} alt="Eye" className="max-w-80 w-auto absolute top-10 left-0 object-cover" />
@@ -32,10 +34,24 @@ function AboutUs() {
               Know more <span className="ml-2">&rarr;</span>
             </Link>
           </div>
-            <img src={DoctorImage} alt="Doctor" className="max-w-80 w-auto absolute object-cover right-0 mb-4 lg:mb-0" />
-            <img src={BeforeAfterImage} alt="Before and After" className="max-w-80 w-auto absolute bottom-0 object-cover" />
+          <img src={DoctorImage} alt="Doctor" className="max-w-80 w-auto absolute object-cover right-0 mb-4 lg:mb-0" />
+          <img src={BeforeAfterImage} alt="Before and After" className="max-w-80 w-auto absolute bottom-0 object-cover" />
         </div>
+
+
+      </div>
+
+      <div className="divider divider-success h-0 m-0 px-40 p-0"></div>
+
+      <div className='flex flex-col items-center justify-center p-10'>
+          <h1 className='text-4xl text-black py-2'>MEET OUR TEAM</h1>
+        <div id="team" className='flex justify-center items-center gap-8 my-4'>
+          <TeamCard />
+          <TeamCard />
+        </div>
+      </div>
     </div>
+
   );
 }
 

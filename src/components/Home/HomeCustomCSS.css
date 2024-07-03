@@ -48,10 +48,15 @@
     width: 100%;
 }
 
+#link-to-services{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media (max-width: 950px) {
     #about-enetracare {
         flex-direction: column;
-        padding: 30px 4px;
+        padding: 30px 8px;
         gap: 20px;
         width: 100%;
     }
@@ -78,6 +83,14 @@
 }
 
 @media (max-width: 750px) {
+    #home-tagline{
+        padding: 0;
+    }
+    #abt-enetracare-container{
+        width: 100%;
+        padding: 0 20px;
+    }
+
     #link-to-services {
         display: flex;
         align-items: center;
@@ -90,5 +103,7 @@
     #service-body{
         padding:40px 20px;
     }
+
+
 
 }
