@@ -8,6 +8,7 @@ import prodImg from './product-img2.jpg'
 import AbhayPic from './AbhayPic.jpg'
 import Left from './chevron-left.svg'
 import Right from './chevron-right.svg'
+import swati from './swati-pic.jpeg'
 
 
 const IMAGES = {
@@ -20,7 +21,8 @@ const IMAGES = {
     prodImg,
     AbhayPic,
     Left,
-    Right
+    Right,
+    swati
 }
 
 export default IMAGES

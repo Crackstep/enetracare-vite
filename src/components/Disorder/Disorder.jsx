@@ -1,4 +1,5 @@
 import React from 'react';
+import IMAGES from '../Home/images';
 
 const CataractsInfo = () => {
     return (
@@ -62,7 +63,7 @@ const CataractsInfo = () => {
                 </div>
                 <div className="right">
                     {/* Replace with your doctor's image */}
-                    <img src="https://media.istockphoto.com/id/177373093/photo/indian-male-doctor.jpg?s=612x612&w=0&k=20&c=5FkfKdCYERkAg65cQtdqeO_D0JMv6vrEdPw3mX1Lkfg=" alt="Doctor's Image" className='max-h-[400px] h-auto' />
+                    <img src={IMAGES.swati} alt="Doctor's Image" className='max-h-[400px] h-auto' />
                 </div>
             </div>
         </div>
