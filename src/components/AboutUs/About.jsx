@@ -48,10 +48,10 @@ function AboutUs() {
         <Milestones />
       </div>
 
-      <div className="divider divider-success h-0 m-0 px-40 p-0"></div>
+      {/* <div className="divider divider-success h-0 m-0 px-40 p-0"></div> */}
 
       <div className='flex flex-col items-center justify-center p-10'>
-          <h1 className='text-4xl text-[#017F98] py-2' id='team-title'>MEET OUR TEAM</h1>
+          <h1 className='text-5xl text-[#017F98] py-2 ' id='team-title'>MEET OUR TEAM</h1>
         <div id="team" className='flex justify-center items-center gap-12 my-4 w-full'>
           <TeamCard 
           img={AbhayPic}

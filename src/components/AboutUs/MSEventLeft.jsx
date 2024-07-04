@@ -4,10 +4,10 @@ function MSEventLeft({
     text,
 }) {
     return (
-        <div className="mt-6 sm:mt-0 sm:mb-12">
+        <div className="mt-6 ">
             <div className="flex flex-col sm:flex-row items-center">
                 <div className="flex justify-start w-full mx-auto items-center">
-                    <div className="w-full sm:w-1/2 sm:pr-8">
+                    <div className="w-1/2 pr-8">
                         <div className="p-4 bg-white rounded shadow">
                            {text}
                         </div>
