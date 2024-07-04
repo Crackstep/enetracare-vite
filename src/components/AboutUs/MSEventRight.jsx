@@ -5,10 +5,10 @@ function MSEventRight({
 }) {
     return (
         <div className="mt-6 ">
-            <div className="flex flex-col sm:flex-row items-center">
+            <div className="flex flex-col sm:flex-row items-center text-white">
                 <div className="flex justify-end w-full mx-auto items-center">
                     <div className="w-1/2  pl-8">
-                        <div className="p-4 bg-white rounded shadow">
+                        <div className="p-4 bg-white rounded shadow bg-opacity-40">
                             {text}
                         </div>
                     </div>
