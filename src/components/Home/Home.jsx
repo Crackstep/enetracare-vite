@@ -30,7 +30,7 @@ function Home() {
       </div>
       <div className="divider px-8 bg-[#FFF] h-0 m-0 p-0 divider-success"></div>
 
-      <div className='h-[25vw] py-4 flex items-center justify-center bg-[#FFFFFF]'>
+      <div className='h-[20vh]  flex items-center justify-center bg-[#FFFFFF]'>
         <h1 className='text-6xl text-center  text-green-900' id='home-tagline'> Vision for All</h1>
       </div>
 

@@ -7,6 +7,7 @@ import TeamCard from './TeamCard';
 import Milestones from './Milestones';
 import AbhayPic from './images/AbhayPic.jpg'
 import SwatiPic from './images/swati-pic.jpeg'
+import './AboutCustomCSS.css'
 
 function AboutUs() {
   return (
@@ -50,8 +51,8 @@ function AboutUs() {
       <div className="divider divider-success h-0 m-0 px-40 p-0"></div>
 
       <div className='flex flex-col items-center justify-center p-10'>
-          <h1 className='text-4xl text-black py-2'>MEET OUR TEAM</h1>
-        <div id="team" className='flex justify-center items-center gap-8 my-4'>
+          <h1 className='text-4xl text-[#017F98] py-2' id='team-title'>MEET OUR TEAM</h1>
+        <div id="team" className='flex justify-center items-center gap-12 my-4 w-full'>
           <TeamCard 
           img={AbhayPic}
           name='Abhay Bhamaikar' 

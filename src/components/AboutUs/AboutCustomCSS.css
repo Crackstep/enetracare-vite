@@ -1,0 +1,29 @@
+@media (max-width:900px)
+{
+    #team{
+        display: flex;
+        flex-direction: column;
+    }
+    #team-card{
+        width: 20rem;
+    }
+    #team-title{
+        font-size: 2rem;
+    }
+}
+@media (max-width:340px)
+{
+
+    #team-title{
+        font-size: 9vw;
+    }
+    #team-card{
+        width: 90vw;
+    }
+}
+@media (max-width:600px)
+{
+
+    
+}
+
