@@ -4,7 +4,7 @@ import InvCommas from './images/inv-commas.png'
 
 function TeamCard({
     img,
-    name, 
+    name,
     qualification,
     currentStatus,
     experience,

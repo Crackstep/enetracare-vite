@@ -107,7 +107,7 @@ function Home() {
       <div className='flex bg-[#DFF7F9] flex-col px-4 py-8 '>
         <h1 className='text-5xl text-[#017F84] py-6 text-center'>Patient feedback </h1>
 
-        <Link to='/testimonials' className='text-lg text-end mr-24 text-[#017F84] hover:underline'> See more</Link>
+        <Link to='/testimonials' className='text-lg text-end mr-24 text-[#017F84] hover:underline'>+ See more </Link>
 
         <div className="container-wrap">
           {/* <img src={IMAGES.Left} id="back-btn"
