@@ -8,7 +8,7 @@ function MSEventLeft({
             <div className="flex flex-col sm:flex-row items-center">
                 <div className="flex justify-start w-full mx-auto items-center">
                     <div className="w-1/2 pr-8">
-                        <div className="p-4 bg-white rounded shadow">
+                        <div className="p-4 bg-white rounded shadow animation">
                            {text}
                         </div>
                     </div>
