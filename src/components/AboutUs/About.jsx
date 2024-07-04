@@ -4,6 +4,7 @@ import EyeImage from './images/mask-1.svg';  // Replace with the path to your ey
 import DoctorImage from './images/mask-3.svg';  // Replace with the path to your doctor image
 import BeforeAfterImage from './images/mask-2.svg';  // Replace with the path to your before-after image
 import TeamCard from './TeamCard';
+import Milestones from './Milestones';
 
 function AboutUs() {
   return (
@@ -39,6 +40,9 @@ function AboutUs() {
         </div>
 
 
+      </div>
+      <div id="milestones">
+        <Milestones />
       </div>
 
       <div className="divider divider-success h-0 m-0 px-40 p-0"></div>
