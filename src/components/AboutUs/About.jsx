@@ -5,6 +5,8 @@ import DoctorImage from './images/mask-3.svg';  // Replace with the path to your
 import BeforeAfterImage from './images/mask-2.svg';  // Replace with the path to your before-after image
 import TeamCard from './TeamCard';
 import Milestones from './Milestones';
+import AbhayPic from './images/AbhayPic.jpg'
+import SwatiPic from './images/swati-pic.jpeg'
 
 function AboutUs() {
   return (
@@ -38,7 +40,7 @@ function AboutUs() {
           <img src={DoctorImage} alt="Doctor" className="max-w-80 w-auto absolute object-cover right-0 mb-4 lg:mb-0" />
           <img src={BeforeAfterImage} alt="Before and After" className="max-w-80 w-auto absolute bottom-0 object-cover" />
         </div>
-
+ 
 
       </div>
       <div id="milestones">
@@ -50,8 +52,22 @@ function AboutUs() {
       <div className='flex flex-col items-center justify-center p-10'>
           <h1 className='text-4xl text-black py-2'>MEET OUR TEAM</h1>
         <div id="team" className='flex justify-center items-center gap-8 my-4'>
-          <TeamCard />
-          <TeamCard />
+          <TeamCard 
+          img={AbhayPic}
+          name='Abhay Bhamaikar' 
+          qualification='B.E (Computer Engineering)  &  M.E (Information Technology)'
+          currentStatus='Proprietor of 2 Business Entities.'
+          experience='Teaching Experience of 7 Years in Engineering College'
+          research='Publications in 4 International Journals'
+          />
+          <TeamCard 
+          img={SwatiPic}
+          name='Dr. Swati Tomar' 
+          qualification='M.B.B.S, MS (Ophthalmology) & Former Fellow and Adjunct Faculty LVPEI'
+          currentStatus='Consultant and Proprietor of Eye Hospital'
+          experience='Teaching Experience of 20 Years in Medical College'
+          research='Publications in 13 International Journals'
+          />
         </div>
       </div>
     </div>
