@@ -65,22 +65,27 @@ function Services() {
           <AppCard
             img={APPIMAGES.app1}
             text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+            stepNum='1'
           />
           <AppCard
             img={APPIMAGES.app2}
             text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+            stepNum='2'
           />
           <AppCard
             img={APPIMAGES.app3}
             text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+            stepNum='3'
           />
           <AppCard
             img={APPIMAGES.app4}
             text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+            stepNum='4'
           />
           <AppCard
             img={APPIMAGES.app5}
             text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+            stepNum='5'
           />
         </div>
 
