@@ -2,6 +2,7 @@ import React from 'react'
 import Img1 from './images/service-img1.jpeg'
 import Vid1 from './images/Device-vid.mp4'
 import './ServicesCustomCSS.css'
+import Vid2 from './images/tutorial-vid.mp4'
 
 function Services() {
   return (
@@ -20,10 +21,10 @@ function Services() {
         </div>
       </div>
 
-      <div className='relative '>
+      <div className='relative bg-white'>
         <div className='flex items-center justify-center my-20 relative' id='device-video'>
           <h4 className='absolute m-auto text-7xl text-white z-20 w-3/5 text-left' id='video-title'>Quick Guide: Capturing an Eye Image</h4>
-          <video class="h-[100vh] relative w-[100vw] z-[1] opacity-20 object-fill" controls autoPlay loop  >
+          <video className="h-[100vh] relative w-[90vw] z-[1] opacity-20 object-fill" controls autoPlay loop id='bg-video'>
             <source
               src={Vid1}
               type="video/mp4"
@@ -36,18 +37,24 @@ function Services() {
       <div className='px-10'>
         <div id="device-guide" className='flex items-center justify-around gap-8 my-2'>
           <div id="device-guide-text" className='flex gap-4'>
-            <div id="dg-text-number" className='flex items-center h-[100px] w-[100px]  rounded-sm'><p className='text-4xl px-7 bg-[#017F84] py-4 rounded-full text-white'>1</p></div>
+            
             <div id="dg-text">
               <h2 className='text-4xl text-[#017F84]'>Step title</h2>
-              <p className='text-lg text-[#017F84]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda tempore quisquam commodi est. Fugit, voluptatibus ab laudantium repudiandae eum culpa! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati assumenda quaerat enim autem sit pariatur accusantium eveniet tempore a adipisci.</p>
+              <p className='text-lg text-[#017F84] w-[90%]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda tempore quisquam commodi est. Fugit, voluptatibus ab laudantium repudiandae eum culpa! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati assumenda quaerat enim autem sit pariatur accusantium eveniet tempore a adipisci.</p>
             </div>
           </div>
-          <div id="device-guide-img">
-            <img src={Img1} alt="" className='max-w-[40vw] rounded-lg' />
+          <div id="device-guide-vid">
+          <video className="max-w-[40vw] rounded-2xl" controls>
+            <source
+              src={Vid2}
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
           </div>
         </div>
 
-        <div id="device-guide" className='flex items-center justify-around gap-8 my-2'>
+        {/* <div id="device-guide" className='flex items-center justify-around gap-8 my-2'>
           <div id="device-guide-img">
             <img src={Img1} alt="" className='max-w-[40vw] rounded-lg' />
           </div>
@@ -60,7 +67,7 @@ function Services() {
               <p className='text-lg text-[#017F84]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda tempore quisquam commodi est. Fugit, voluptatibus ab laudantium repudiandae eum culpa! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati assumenda quaerat enim autem sit pariatur accusantium eveniet tempore a adipisci.</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
 

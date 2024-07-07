@@ -8,16 +8,16 @@
 
 }
 
-video::-webkit-media-controls {
+#bg-video::-webkit-media-controls {
     display: none !important;
 }
 
-video::-webkit-media-controls-enclosure {
+#bg-video::-webkit-media-controls-enclosure {
     display: none !important;
 }
 
 /* This covers Firefox and other browsers */
-video::-moz-media-controls {
+#bg-video::-moz-media-controls {
     display: none !important;
 }
 
