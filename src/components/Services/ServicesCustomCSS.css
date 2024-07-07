@@ -1,0 +1,40 @@
+#device-video::before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #017F84;
+    opacity: 0.6;
+    content: "";
+
+}
+
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+/* This covers Firefox and other browsers */
+video::-moz-media-controls {
+    display: none !important;
+}
+
+#video-title{
+    animation: fade-in linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes fade-in {
+    from{
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
