@@ -1,0 +1,27 @@
+#title {
+    color: #017F84;
+    margin-top: 2rem;
+    font-size: 3vw;
+    font-weight: 600;
+  }
+  
+  #video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .video-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .video-card h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
