@@ -23,7 +23,7 @@ function AppCard({
         onMouseOut={hideText}
         >
             <img src={img} className='w-[18vw] rounded-lg'/>
-            <div className={`absolute top-0 left-0 h-full m-auto p-4 bg-white bg-opacity-90 rounded-lg ${display} `} id='app-text'>
+            <div className={`absolute top-0 left-0 h-full m-auto p-4 bg-white  rounded-lg ${display} `} id='app-text'>
                 <h2 className='text-2xl text-[#0E93D2]'> Step 1</h2>
                 <p className='text-[#0E93D2]'>
                     {text}
