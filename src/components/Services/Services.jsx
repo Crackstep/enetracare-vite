@@ -3,6 +3,9 @@ import Img1 from './images/service-img1.jpeg'
 import Vid1 from './images/Device-vid.mp4'
 import './ServicesCustomCSS.css'
 import Vid2 from './images/tutorial-vid.mp4'
+import AppCard from './AppCard'
+import APPIMAGES from '.'
+import Doc from'./images/Doc1.pdf'
 
 function Services() {
   return (
@@ -34,46 +37,57 @@ function Services() {
         </div>
       </div>
 
-      <div className='px-10'>
+      <div className='px-10 mb-20'>
         <div id="device-guide" className='flex items-center justify-around gap-8 my-2'>
           <div id="device-guide-text" className='flex gap-4'>
-            
+
             <div id="dg-text">
               <h2 className='text-4xl text-[#017F84]'>Step title</h2>
               <p className='text-lg text-[#017F84] w-[90%]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda tempore quisquam commodi est. Fugit, voluptatibus ab laudantium repudiandae eum culpa! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati assumenda quaerat enim autem sit pariatur accusantium eveniet tempore a adipisci.</p>
             </div>
           </div>
           <div id="device-guide-vid">
-          <video className="max-w-[40vw] rounded-2xl" controls>
-            <source
-              src={Vid2}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+            <video className="max-w-[40vw] rounded-lg" controls>
+              <source
+                src={Vid2}
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        {/* <div id="device-guide" className='flex items-center justify-around gap-8 my-2'>
-          <div id="device-guide-img">
-            <img src={Img1} alt="" className='max-w-[40vw] rounded-lg' />
-          </div>
-
-          <div id="device-guide-text" className='flex gap-4'>
-            <div id="dg-text-number" className='flex items-center h-[100px] w-[100px]  rounded-sm'><p className='text-4xl px-7 bg-[#017F84] py-4 rounded-full text-white'>2</p>
-            </div>
-            <div id="dg-text">
-              <h2 className='text-4xl text-[#017F84]'>Step title</h2>
-              <p className='text-lg text-[#017F84]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda tempore quisquam commodi est. Fugit, voluptatibus ab laudantium repudiandae eum culpa! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati assumenda quaerat enim autem sit pariatur accusantium eveniet tempore a adipisci.</p>
-            </div>
-          </div>
-        </div> */}
-
       </div>
 
+      <div className='pb-20 bg-[#e1f9ff] px-10 pt-10'>
+        <h2 className='text-center text-[3vw] text-[#0e8ed2]'>About eNetraCare App</h2>
+        <p className='text-xl text-[#0E93D2] px-20 mt-1 mb-10'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis harum consequuntur corporis obcaecati odio accusamus accusantium. Magnam expedita sint, sunt consequuntur, aliquid, ratione quae quod quo ad suscipit architecto eos tempora nemo. Amet esse, rem placeat laborum sapiente quia voluptatem! Here is a quick tutorial to eNetraCare App</p>
+        <div className='flex justify-center gap-8 my-4'>
+          <AppCard
+            img={APPIMAGES.app1}
+            text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+          />
+          <AppCard
+            img={APPIMAGES.app2}
+            text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+          />
+          <AppCard
+            img={APPIMAGES.app3}
+            text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+          />
+          <AppCard
+            img={APPIMAGES.app4}
+            text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+          />
+          <AppCard
+            img={APPIMAGES.app5}
+            text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, odio sed! Eveniet dolorum suscipit tempore corrupti. Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!Possimus hic eaque est in explicabo amet eius quidem enim beatae ea? Vitae, dolores!'
+          />
+        </div>
 
-
-
+        <a href={Doc} download className='text-lg text-[#0E93D2] py-20 hover:underline'>
+          Download an example report here
+        </a>
+      </div>
     </div>
   )
 }
