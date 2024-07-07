@@ -1,9 +1,13 @@
 import { Carousel } from "@material-tailwind/react";
-import IMAGES from './images/index'
- 
+import IMAGES from './images/index';
+
 export function CarouselDefault() {
   return (
-    <Carousel className=" flex items-center">
+    <Carousel 
+      className="flex items-center"
+      autoplay={true}    // Enable autoplay
+      interval={3000}    // Set the interval to 3000ms (3 seconds)
+    >
       <img
         src={IMAGES.image1}
         alt="image 1"
@@ -11,6 +15,7 @@ export function CarouselDefault() {
       />
       <img
         src={IMAGES.image2}
+        alt="image 2"
         className="max-h-[700px] w-full object-cover"
       />
       <img
