@@ -52,7 +52,7 @@ function Services() {
             </div>
           </div>
           <div id="sec-3-video-container">
-            <video className="max-w-[40vw] rounded-lg" controls>
+            <video className="max-w-[40vw] rounded-lg" controls >
               <source
                 src={Vid2}
                 type="video/mp4"
