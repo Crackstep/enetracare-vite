@@ -257,3 +257,4 @@ footer completion
 
 Install Axios 
 npm i axios
+npm install react-player
