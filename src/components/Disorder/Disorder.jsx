@@ -1,5 +1,6 @@
 import React from 'react';
 import IMAGES from '../Home/images';
+import './mediad.css'
 
 const CataractsInfo = () => {
     return (

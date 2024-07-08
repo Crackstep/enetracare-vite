@@ -1,0 +1,89 @@
+/* media.css */
+
+/* Base styles for all screen sizes */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive styles for small screens */
+  @media (max-width: 600px) {
+    .bg-white {
+      padding: 12px 20px;
+    }
+  
+    .grid-cols-1 {
+      display: block;
+    }
+  
+    .flex-col {
+      flex-direction: column;
+    }
+  
+    .max-w-80 {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .absolute {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  
+    .text-center {
+      text-align: center;
+    }
+  
+    .items-center {
+      align-items: center;
+    }
+  
+    .justify-center {
+      justify-content: center;
+    }
+  
+    .block {
+      display: block;
+    }
+  
+    .inline-flex {
+      display: inline-flex;
+    }
+  
+    .self-center {
+      align-self: center;
+    }
+  
+    .text-5xl {
+      font-size: 2rem;
+    }
+  
+    .py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  
+    .gap-8 {
+      gap: 2rem;
+    }
+  
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Additional styles for larger screens if necessary */
+  @media (min-width: 601px) {
+    /* Add any styles needed for screens larger than 600px */
+  }
+  
