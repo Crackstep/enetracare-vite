@@ -42,6 +42,7 @@ function App() {
           setIsLoading(false);
         } else if (retryCount < maxRetries) {
           retryCount++;
+          console.log(delay);
           setTimeout(getNews, delay);
         } else {
           setIsLoading(false);
@@ -54,13 +55,6 @@ function App() {
 
     getNews();
   }, []);
-
-  const getNews = async () => {
-    setIsLoading(true);
-    const news = await cachedFetchNews();
-    setData(news);
-    setIsLoading(false);
-  }
 
   if (isLoading) return <Loader />;
 
