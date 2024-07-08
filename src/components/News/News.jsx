@@ -29,6 +29,29 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let retryCount = 0;
+    const maxRetries = 5;
+    const delay = 2000;
+
+    const getNews = async () => {
+      setIsLoading(true);
+      try {
+        const news = await cachedFetchNews();
+        if (news && news.length > 0) {
+          setData(news);
+          setIsLoading(false);
+        } else if (retryCount < maxRetries) {
+          retryCount++;
+          setTimeout(getNews, delay);
+        } else {
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error("Failed to fetch news:", error);
+        setIsLoading(false)
+      }
+    };
+
     getNews();
   }, []);
 
