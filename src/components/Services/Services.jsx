@@ -65,9 +65,12 @@ function Services() {
       {/* section 3 ends */}
 
       {/* section 4 starts */}
-      <div className='pb-20 bg-[#e1f9ff] px-10 pt-10'>
+      <div className='pb-20 bg-[#e1f9ff] px-10 pt-10' id='sec-4'>
         <h2 className='text-center text-[2.5vw] text-[#0e8ed2]' id='sec-4-title'>About eNetraCare App</h2>
         <p className='text-[1.3vw] text-[#0E93D2] px-20 text-center mt-1 mb-10 object-fill' id='sec-4-text'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis harum consequuntur corporis obcaecati odio accusamus accusantium. Magnam expedita sint, sunt consequuntur, aliquid, ratione quae quod quo ad suscipit architecto eos tempora nemo. Amet esse, rem placeat laborum sapiente quia voluptatem! Here is a quick tutorial to eNetraCare App</p>
+        
+        <div id="app-container-wrap">
+        <div id='app-container'>
         <div className='flex justify-center gap-8 my-4'>
           <AppCard
             img={APPIMAGES.app1}
@@ -95,6 +98,9 @@ function Services() {
             stepNum='5'
           />
         </div>
+        </div>
+        </div>
+        
 
         <a href={Doc} download className='text-lg text-[#0E93D2] py-20 hover:underline'>
           Download an example report here <i class="fa-solid fa-download"></i>
