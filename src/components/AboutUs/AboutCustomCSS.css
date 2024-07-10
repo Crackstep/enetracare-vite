@@ -33,9 +33,25 @@
         width: 90vw;
     }
 }
-@media (max-width:600px)
+@media (max-width:720px)
 {
+    #abt-sec-1{
+        flex-direction: column;
+        padding: 100px 0;
+    }
 
+    #abt-sec-1-img {
+        padding: 0;
+    }
+    #abt-sec-1-img div img{
+        height: 40vw;
+        padding: 0;
+        margin: 0;
+    }
+    #abt-sec-1-text{
+        width: 100%;
+        text-align: center;
+    }
     
 }
 
