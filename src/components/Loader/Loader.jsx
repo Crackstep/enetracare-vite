@@ -4,7 +4,7 @@ import EyeAnimation from './Animation/eye.json';
 
 function Loader() {
   return (
-    <div className='min-h-screen flex justify-center items-center'>
+    <div className='flex justify-center items-center lg:mt-[15rem] md:mt-[10rem]'>
       <div className='w-48'>
         <Lottie animationData={EyeAnimation} loop={true} />
       </div>
