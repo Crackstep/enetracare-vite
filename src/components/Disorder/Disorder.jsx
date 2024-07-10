@@ -48,10 +48,7 @@ const CataractsInfo = () => {
                             Doctor's 
                         </h1>
                         <p className='text-lg text-green-800 p-3 inline-block'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Esse, earum sed eveniet dolor laborum necessitatibus aliquam nulla culpa impedit consequatur vero blanditiis hic obcaecati minus in!
-                            Necessitatibus quos voluptas, ipsum ipsa velit culpa eveniet eum id alias doloribus recusandae quaerat ratione hic fugit soluta?
-                            Odio voluptatem praesentium id blanditiis eum?
+                            Lorem ipsum dolor sit amet consectetur adipisicing eli
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Praesentium dicta et incidunt perspiciatis, architecto possimus dolores quae reiciendis magnam ab.
                             <span className='text-4xl font-bold font-customFont rotate-180 '>''</span>
