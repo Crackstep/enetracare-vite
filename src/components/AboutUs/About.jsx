@@ -5,7 +5,7 @@ import Milestones from './Milestones';
 import AbhayPic from './images/AbhayPic.jpg'
 import SwatiPic from './images/swati-pic.jpeg'
 import './AboutCustomCSS.css'
-import './media.css';
+// import './media.css';
 
 import IMAGES from './images';
 import Sec2Card from './Sec2Card';
