@@ -36,30 +36,52 @@ function AboutUs() {
       </div>
       {/* sec-1 ends */}
 
-    
+
       <hr className='bg-[#017f84] h-[2px]' />
+
       {/* sec-2 starts */}
-      <div className='my-10 p-10'>
+      <div className='my-10 p-10' id='abt-sec-2'>
         <div className='flex items-center flex-col mb-12'>
           <h2 className='text-4xl pb-4 text-[#017f84]'> "Vision for All: Empowering Sight, Enabling Futures."</h2>
           <h4 className='text-2xl text-[#878b8b]'>WHAT WE OFFER</h4>
         </div>
 
-        <div>
-          <div className='flex justify-center gap-4'>
-            <Sec2Card img={IMAGES.Img3}
-              text='AI Cataract Detection'
-              isBorderAllowed={true} />
-            <Sec2Card img={IMAGES.Img4}
-              text='Cataract Surgery'
-              isBorderAllowed={true} />
-            <Sec2Card img={IMAGES.Img5}
-              text='Comprehensive Eye Exams'
-              isBorderAllowed={true} />
-            <Sec2Card img={IMAGES.Img6}
-              text='Post-Surgery Care'
-              isBorderAllowed={false} />
+        <div className='flex justify-center w-full items-center'>
+          <div className='grid grid-cols-4 gap-1' id='sec-2-card-container'>
+              <Sec2Card img={IMAGES.Img3}
+                text='AI Cataract Detection'
+                isBorderAllowed={true} />
+              <Sec2Card img={IMAGES.Img4}
+                text='Cataract Surgery'
+                isBorderAllowed={true} />
+              <Sec2Card img={IMAGES.Img5}
+                text='Comprehensive Eye Exams'
+                isBorderAllowed={true} />
+              <Sec2Card img={IMAGES.Img6}
+                text='Post-Surgery Care'
+                isBorderAllowed={false} />
+
           </div>
+          {/* <div className='flex justify-center gap-4' id='sec-2-card-container'>
+            <div className='flex sec-2-card-containers'>
+              <Sec2Card img={IMAGES.Img3}
+                text='AI Cataract Detection'
+                isBorderAllowed={true} />
+              <Sec2Card img={IMAGES.Img4}
+                text='Cataract Surgery'
+                isBorderAllowed={true} />
+            </div>
+
+            <div className='flex sec-2-card-containers'>
+              <Sec2Card img={IMAGES.Img5}
+                text='Comprehensive Eye Exams'
+                isBorderAllowed={true} />
+              <Sec2Card img={IMAGES.Img6}
+                text='Post-Surgery Care'
+                isBorderAllowed={false} />
+            </div>
+
+          </div> */}
         </div>
       </div>
 
