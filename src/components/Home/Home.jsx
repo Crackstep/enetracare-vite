@@ -18,8 +18,6 @@ function Home() {
     `${import.meta.env.VITE_BACKEND_URL}/testimonials`,
     fetcher
   );
-  if (error)
-    return <div className="mx-[7%] px-4 py-8 min-h-screen">failed to load</div>;
 
   const scrollContainer = document.querySelector(".container");
   const containerRef = useRef();

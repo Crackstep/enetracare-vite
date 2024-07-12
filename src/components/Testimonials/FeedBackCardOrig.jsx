@@ -1,9 +1,9 @@
 import React from 'react'
-import User from './images/user-img.jpg'
 
 function FeedBackCardOrig({
     name,
-    feedBackText
+    feedBackText,
+    patientImage
 }) {
     return (
         <div className='flex items-center shadow-lg p-4 rounded-lg bg-white m-1 gap-8 hover:bg-[#017F98] hover:text-white hover:duration-300 hover:scale-[1.03] animation' id='feedback-box'>
@@ -12,7 +12,7 @@ function FeedBackCardOrig({
 
             </div>
             <div id="photo">
-                <img src={User} alt="user-image.jpg" className='max-h-32 h-auto  w-32 rounded-full' />
+                <img src={patientImage} alt="user-image.jpg" className='max-h-32 h-auto  w-32 rounded-full' />
             </div>
         </div>
     )
