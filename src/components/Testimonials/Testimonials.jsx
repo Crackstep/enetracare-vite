@@ -3,6 +3,7 @@ import FeedBackCard from '../Home/FeedbackCard';
 import FeedBackCardOrig from './FeedBackCardOrig';
 import './TestimonialsCustomCSS.css';
 import Message from './Message/Message'
+import TestimonialInputModal from './TestimonialInputModal';
 
 function Testimonials() {
   const [showAll, setShowAll] = useState(false);
@@ -41,9 +42,20 @@ function Testimonials() {
         <button onClick={() => setShowAll(!showAll)} className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4">
           {showAll ? 'Show Less' : 'Show More'}
         </button>
-        <button  className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4">
+        <button 
+        className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4"
+        onClick={()=>{
+          document.getElementById('testi-modal').style.display = 'block'
+        }}
+        >
           Add a Testimonial
         </button>
+      </div>
+      <div className='relative'>
+
+        <div id='testi-modal' className='hidden'>
+          <TestimonialInputModal />
+        </div>
       </div>
       {/* <div><Message/></div> */}
     </div>
