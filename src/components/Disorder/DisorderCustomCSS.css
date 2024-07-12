@@ -1,15 +1,23 @@
 @media (max-width:1000px) {
+    #disorder-container{
+        margin: 12px;
+        margin-bottom: 24px;
+    }
     #disorder-title{
         font-size: 3rem;
     }
     #disorder-sec-1,
     #disorder-sec-2,
     #disorder-sec-3 {
-        flex-direction: column;
         padding: 10px;
         margin: 0;
         margin-bottom: 20px;
     }
+    #disorder-sec-1,
+    #disorder-sec-3 {
+        flex-direction: column;
+    }
+    
 
     #disorder-sec-1-text,
     #disorder-sec-3-text {
