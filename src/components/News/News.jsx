@@ -62,7 +62,7 @@ function App() {
           })}
         </div>
       )}
-      {isLoading && <Loader />}
+      {isLoading && <Loader style={"lg:mt-[15rem] md:mt-[10rem]"} />}
     </div>
   );
 }
