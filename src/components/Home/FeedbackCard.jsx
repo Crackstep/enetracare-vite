@@ -3,7 +3,8 @@ import User from './images/user-picture.png'
 
 function FeedbackCard({
     name, 
-    feedBackText
+    feedBackText,
+    patientImage,
 }) {
     return (
         <div className='flex justify-center shadow-lg p-6 rounded-lg bg-white m-2 gap-8'>
@@ -12,7 +13,7 @@ function FeedbackCard({
                 
             </div>
             <div id="photo">
-                <img src={User} alt="user-image.jpg" className='h-32 mt-[50%] w-32 rounded-full' />
+                <img src={patientImage} alt="user-image.jpg" className='h-32 mt-[50%] w-32 rounded-full' />
             </div>
         </div>
     )
