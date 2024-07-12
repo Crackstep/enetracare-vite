@@ -43,12 +43,12 @@ function Services() {
       {/* section 2 ends */}
 
       {/* section 3 starts */}
-      <div className='px-10 mb-20'>
+      <div className='px-10 mb-20' id='sec-3-container'>
         <div id="sec-3" className='flex items-center justify-around gap-8 my-2' >
           <div id="device-guide-text" className='flex gap-4'>
             <div id="sec-3-text-container">
               <h2 className='text-[2.5vw] text-[#017F84]' id='sec-3-title'>Step title</h2>
-              <p className='text-[1.3vw] text-[#017F84] w-[90%]' id='sec-3-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda tempore quisquam commodi est. Fugit, voluptatibus ab laudantium repudiandae eum culpa! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati assumenda quaerat enim autem sit pariatur accusantium eveniet tempore a adipisci.</p>
+              <p className='text-[1.3vw] text-[#017F84] ' id='sec-3-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda tempore quisquam commodi est. Fugit, voluptatibus ab laudantium repudiandae eum culpa! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati assumenda quaerat enim autem sit pariatur accusantium eveniet tempore a adipisci.</p>
             </div>
           </div>
           <div id="sec-3-video-container">

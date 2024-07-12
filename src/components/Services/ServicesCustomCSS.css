@@ -85,6 +85,10 @@
         font-size: 1rem;
     }
 
+    #sec-3-container{
+        padding: 10px 0;
+    }
+
     /* this is added */
 
     #sec-4{
@@ -106,12 +110,14 @@
     }
     
     #app-container div div {
-        width: 11rem;
+        width: 15rem;
     }
     #app-container div {
         width: auto;
         height: 100%;
     }
+
+   
    
 }
 
