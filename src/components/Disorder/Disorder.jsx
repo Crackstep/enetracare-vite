@@ -66,7 +66,7 @@ const CataractsInfo = () => {
                 </div>
             </div> */}
             {/* ------------------------------------------------------------------------------------------------------------ */}
-            <div className='m-10 bg-[#dff7f9] p-[20px] rounded-md shadow-md'>
+            <div className='m-8 bg-[#dff7f9] p-[20px] rounded-md shadow-md'>
                 <h2 className='text-5xl py-4 text-center text-[#017f84]' id='disorder-title'>Information on Cataracts</h2>
 
                 <div className="divider mx-40 divider-success mt-0 p-0"></div>
