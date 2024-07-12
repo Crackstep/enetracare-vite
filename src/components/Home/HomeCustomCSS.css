@@ -66,6 +66,10 @@
         padding: 10px 0;
         font-size: 2.25rem;
     }
+
+    #home-sec-2-title{
+        padding: 20px 0;
+    }
     #home-sec-3 {
         flex-direction: column;
         padding: 30px 8px;
@@ -76,8 +80,8 @@
     #home-sec-5 {
         display: flex;
         flex-direction: column;
-        padding: 50px;
-        margin: 0;
+        padding: 15px;
+        margin: 10px 0;
     }
 
     .founder-left {
