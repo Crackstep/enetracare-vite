@@ -1,6 +1,7 @@
 import React from 'react'
 import MSEventLeft from './MSEventLeft'
 import MSEventRight from './MSEventRight'
+import InputModal from './InputModal'
 
 let count = 0
 
@@ -9,15 +10,15 @@ function Milestones() {
     const createEventLeft = (text) => {
         const element = document.createElement('div')
         element.className = 'mt-6'
-        element.innerHTML = `<div className="flex flex-col sm:flex-row items-center">
-                <div className="flex justify-start w-full mx-auto items-center">
-                    <div className="w-1/2 pr-8">
-                        <div className="p-4 bg-white rounded shadow animation">
+        element.innerHTML = `<div class="flex flex-col sm:flex-row items-center">
+                <div class="flex justify-start w-full mx-auto items-center">
+                    <div class="w-1/2 pr-8">
+                        <div class="p-4 bg-white rounded shadow animation">
                            ${text}
                         </div>
                     </div>
                 </div>
-                <div className="rounded-full bg-[#017F98] border-white border-4 w-8 h-8 absolute left-1/2 -translate-y-4 sm:translate-y-0 transform -translate-x-1/2 flex items-center justify-center">
+                <div class="rounded-full bg-[#017F98] border-white border-4 w-8 h-8 absolute left-1/2 -translate-y-4 sm:translate-y-0 transform -translate-x-1/2 flex items-center justify-center">
                     <i class="fa-solid fa-circle text-white"></i>
                 </div>
             </div>`
@@ -27,15 +28,15 @@ function Milestones() {
     const createEventRight = (text) => {
         const element = document.createElement('div')
         element.className = 'mt-6'
-        element.innerHTML = `<div className="flex flex-col sm:flex-row items-center text-white">
-                <div className="flex justify-end w-full mx-auto items-center">
-                    <div className="w-1/2  pl-8">
-                        <div className="p-4 bg-white rounded shadow animation bg-opacity-40">
+        element.innerHTML = `<div class="flex flex-col sm:flex-row items-center text-white">
+                <div class="flex justify-end w-full mx-auto items-center">
+                    <div class="w-1/2  pl-8">
+                        <div class="p-4 bg-white rounded shadow animation bg-opacity-40">
                             ${text}
                         </div>
                     </div>
                 </div>
-                <div className="rounded-full bg-[#017F98] border-white border-4 w-8 h-8 absolute left-1/2 -translate-y-4 sm:translate-y-0 transform -translate-x-1/2 flex items-center justify-center">
+                <div class="rounded-full bg-[#017F98] border-white border-4 w-8 h-8 absolute left-1/2 -translate-y-4 sm:translate-y-0 transform -translate-x-1/2 flex items-center justify-center">
                     <i class="fa-solid fa-circle text-white"></i>
                 </div>
             </div>`
@@ -44,7 +45,7 @@ function Milestones() {
     }
     return (
 
-        <div className="min-h-screen bg-[#017F98] flex flex-col py-10 ">
+        <div className="relative min-h-screen bg-[#017F98] flex flex-col py-10 ">
             <h1 className='text-5xl text-white text-center py-4' id='milestone-title'>MILESTONES</h1>
 
             <div className="py-1 w-full px-2 flex justify-center items-center my-10 ">
@@ -75,7 +76,7 @@ function Milestones() {
             <button
                 onClick={(e) => {
                     e.preventDefault()
-                    let element = count%2==0 ? createEventLeft('HellowTextblah blah lkfrfri') : createEventRight('HellowTextblah blah lkfrfri')
+                    let element = count%2==0 ? createEventLeft('HelloTextblah blah lkfrfri') : createEventRight('HellowTextblah blah lkfrfri')
                     count++;
                     console.log(count)
                     document.getElementById('events-container').appendChild(element)
@@ -84,6 +85,8 @@ function Milestones() {
 
                 }}
             >Add Event</button>
+
+            <InputModal />
         </div>
 
     )
