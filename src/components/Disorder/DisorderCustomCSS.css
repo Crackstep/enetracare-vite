@@ -1,0 +1,22 @@
+@media (max-width:1000px) {
+    #disorder-title{
+        font-size: 3rem;
+    }
+    #disorder-sec-1,
+    #disorder-sec-3 {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    #disorder-sec-1-text,
+    #disorder-sec-3-text {
+        width: 100%;
+    }
+
+    #disorder-sec-1-title,
+    #disorder-sec-2-title,
+    #disorder-sec-3-title {
+        padding: 10px 0;
+        font-size: 2.25rem;
+    }
+}

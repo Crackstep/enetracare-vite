@@ -1,6 +1,7 @@
 import React from 'react';
 import IMAGES from '../Home/images';
 import './mediad.css'
+import './DisorderCustomCSS.css'
 
 const CataractsInfo = () => {
     return (
@@ -66,20 +67,20 @@ const CataractsInfo = () => {
             </div> */}
             {/* ------------------------------------------------------------------------------------------------------------ */}
             <div className='m-10 bg-[#dff7f9] p-[20px] rounded-md shadow-md'>
-                <h2 className='text-5xl py-4 text-center text-[#017f84]'>Information on Cataracts</h2>
+                <h2 className='text-5xl py-4 text-center text-[#017f84]' id='disorder-title'>Information on Cataracts</h2>
 
                 <div className="divider mx-40 divider-success mt-0 p-0"></div>
 
                 <div id="disorder-sec-1" className='flex items-center justify-center px-20 gap-8 mt-8 my-4'>
-                    <div id="sec-1-img">
+                    <div id="disorder-sec-1-img">
                         <img
                             src="https://images.medicinenet.com/images/slideshow/eye_diseases_and_cond_s4_cataracts_2.jpg"
                             alt="Cataracts"
                             className='max-h-72 rounded-md'
                         />
                     </div>
-                    <div id="sec-1-text" className='w-3/5 flex flex-col justify-center text-[#017f84]'>
-                        <h2 className='text-3xl mb-2'>What is Cataract?</h2>
+                    <div id="disorder-sec-1-text" className='w-3/5 flex flex-col justify-center text-[#017f84]'>
+                        <h2 className='text-3xl mb-2' id='disorder-sec-1-title'>What is Cataract?</h2>
                         <p className='text-lg'>
                             Cataracts are a clouding of the lens in the eye which leads to a decrease in vision.
                             They may affect one or both eyes. Often they develop slowly and can affect both eyes differently.
@@ -92,7 +93,7 @@ const CataractsInfo = () => {
                 </div>
 
                 <div id="disorder-sec-2" className='mx-32 py-10 text-[#017f84]'>
-                    <h2 className='text-3xl py-1'>Related Articles</h2>
+                    <h2 className='text-3xl py-1' id='disorder-sec-2-title'>Related Articles</h2>
                     <ul className='text-lg'>
                         <li><a href="https://www.example.com/article1" target="_blank" rel="noopener noreferrer">Understanding Cataracts</a></li>
                         <li><a href="https://www.example.com/article2" target="_blank" rel="noopener noreferrer">Cataract Surgery: What to Expect</a></li>
@@ -103,7 +104,7 @@ const CataractsInfo = () => {
                 <div id="disorder-sec-3" className='flex items-center justify-around px-10'>
                     <div id='disorder-sec-3-text' className='w-3/5'>
                         <div id="founder-msg">
-                            <h1 className='text-5xl text-[#017f84]'>
+                            <h1 className='text-5xl text-[#017f84]' id='disorder-sec-3-title'>
                                 <span className='text-7xl font-customFont font-semibold'>&#8220;</span>
                                 Doctor's Message
                             </h1>
