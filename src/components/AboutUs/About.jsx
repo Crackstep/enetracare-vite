@@ -47,7 +47,7 @@ function AboutUs() {
         </div>
 
         <div className='flex justify-center w-full items-center'>
-          <div className='grid grid-cols-4 gap-1' id='sec-2-card-container'>
+          {/* <div className='grid grid-cols-4 gap-1' id='sec-2-card-container'>
               <Sec2Card img={IMAGES.Img3}
                 text='AI Cataract Detection'
                 isBorderAllowed={true} />
@@ -60,28 +60,32 @@ function AboutUs() {
               <Sec2Card img={IMAGES.Img6}
                 text='Post-Surgery Care'
                 isBorderAllowed={false} />
-
-          </div>
-          {/* <div className='flex justify-center gap-4' id='sec-2-card-container'>
-            <div className='flex sec-2-card-containers'>
-              <Sec2Card img={IMAGES.Img3}
-                text='AI Cataract Detection'
-                isBorderAllowed={true} />
-              <Sec2Card img={IMAGES.Img4}
-                text='Cataract Surgery'
-                isBorderAllowed={true} />
-            </div>
-
-            <div className='flex sec-2-card-containers'>
-              <Sec2Card img={IMAGES.Img5}
-                text='Comprehensive Eye Exams'
-                isBorderAllowed={true} />
-              <Sec2Card img={IMAGES.Img6}
-                text='Post-Surgery Care'
-                isBorderAllowed={false} />
-            </div>
 
           </div> */}
+          <div className='flex justify-center ' id='sec-2-card-container'>
+            <div className='flex sec-2-card-containers'>
+              <Sec2Card img={IMAGES.Img3}
+                text='AI Cataract Detection'
+                isBorderAllowed={true}
+              />
+              <div className='w-full h-[1.6px] bg-[#017F84] hidden' id='horizontal-line'></div>
+              <Sec2Card img={IMAGES.Img4}
+                text='Cataract Surgery'
+                isBorderAllowed={true} />
+            </div>
+
+            <div className='w-[1.6px] h-auto bg-[#017F84] hidden' id='verticle-line'></div>
+            <div className='flex sec-2-card-containers'>
+              <Sec2Card img={IMAGES.Img5}
+                text='Comprehensive Eye Exams'
+                isBorderAllowed={true} />
+              <div className='w-full h-[1.6px] bg-[#017F84] hidden' id='horizontal-line'></div>
+              <Sec2Card img={IMAGES.Img6}
+                text='Post-Surgery Care'
+                isBorderAllowed={false} />
+            </div>
+
+          </div>
         </div>
       </div>
 
