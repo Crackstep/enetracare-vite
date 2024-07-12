@@ -249,7 +249,7 @@ CSS
 
 about enetracare responsive - done
 redirect to beginning of page
-About us page
+About us page- done
 add founder's message and testimonials - done
 navbar issue - done
 tips and news - done
