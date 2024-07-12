@@ -1,71 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Loader from '../Loader/Loader';
-import axios from 'axios';
+import useSWR from 'swr'
 
-// Caching function
-const cache = (fn) => {
-  const results = new Map();
-  return async (...args) => {
-    const key = JSON.stringify(args);
-    if (results.has(key)) {
-      return results.get(key);
-    }
-    const result = await fn(...args);
-    results.set(key, result);
-    return result;
-  };
-};
-
-// Cached version of the API call
-const fetchNews = async () => {
-  const response = await axios.get("https://enetracare-scrapper-server.vercel.app");
-  return response.data;
-};
-
-const cachedFetchNews = cache(fetchNews);
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 function App() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    let retryCount = 0;
-    const maxRetries = 5;
-    const delay = 2000;
-
-    const getNews = async () => {
-      setIsLoading(true);
-      try {
-        const news = await cachedFetchNews();
-        if (news && news.length > 0) {
-          setData(news);
-          setIsLoading(false);
-        } else if (retryCount < maxRetries) {
-          retryCount++;
-          console.log(delay);
-          setTimeout(getNews, delay);
-        } else {
-          setIsLoading(false);
-        }
-      } catch (error) {
-        console.error("Failed to fetch news:", error);
-        setIsLoading(false)
-      }
-    };
-
-    getNews();
-  }, []);
-
-
+  const { data, error, isLoading } = useSWR(`${import.meta.env.VITE_BACKEND_URL}/news`, fetcher);
+  if (error) return <div className="mx-[7%] px-4 py-8 min-h-screen">failed to load</div>
+ 
   return (
     <div className="mx-[7%] px-4 py-8 min-h-screen">
       <div className='text-[#017F84] text-4xl lg:text-7xl font-semibold mb-10 text-center'>News Section</div>
       {
-        !isLoading && data &&
+        !isLoading && data?.data.length &&
         (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {
-              data.map((article, index) => (
+              data.data.map((article, index) => (
                 <div key={index} className={`bg-white rounded-lg ${!article.title ? "hidden" : ""} shadow-md overflow-hidden`}>
                   <img src={article.image} alt={article.title} className="h-48 w-full object-cover" />
                   <div className="p-4">
