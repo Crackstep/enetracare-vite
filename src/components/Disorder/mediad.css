@@ -1,5 +1,4 @@
-/* mediad.css */
-
+/* 
 .container {
   width: 90%;
   margin: 20px auto;
@@ -100,7 +99,7 @@
   height: auto;
 }
 
-/* Responsive Styles */
+Responsive Styles
 @media (max-width: 768px) {
   .content {
       flex-direction: column;
@@ -148,4 +147,4 @@
   .left {
       padding: 10px;
   }
-}
+} */

@@ -11,7 +11,7 @@ function TeamCard({
     research,
 }) {
     return (
-        <div className='flex flex-col items-center justify-center p-4 rounded-xl bg-[#f5f5f5] w-[25vw]' id='team-card'>
+        <div className='flex flex-col items-center justify-center p-4 rounded-xl bg-[#f5f5f5] w-[25vw] hover:scale-[1.05] hover:duration-300' id='team-card'>
             <div id="img-container" className='relative p-4'>
                 <img src={img} alt="team-member1.jpg" className='max-h-60 rounded-xl' />
                 <div id="inv-commas" className='absolute top-0 left-0 bg-[#017F84] text-white flex items-center p-3 justify-center rounded-full text-6xl'><img src={InvCommas} className='h-6' /></div>

@@ -8,7 +8,7 @@ function Testimonials() {
   const [showAll, setShowAll] = useState(false);
 
   const testimonials = [
-    { name: 'Patient Name', feedBackText: 'Lorem, ipsum dolor sit amet con' },
+    { name: 'Patient Name', feedBackText: 'Lorem, ipsum dolor sit amet con consectetur adipisicing elit. Magnam hic eligendi esse minima obcaecat' },
     { name: 'Patient Name', feedBackText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam hic eligendi esse minima obcaecati maiores veniam, impedit nobis rem, velit laudantium repudiandae ratione fugiat! Cum nesciunt saepe esse facilis inventore?' },
     { name: 'Patient Name', feedBackText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam hic eligendi esse minima obcaecati maiores veniam, impedit nobis rem, velit laudantium repudiandae ratione fugiat! Cum nesciunt saepe esse facilis inventore?' },
     { name: 'Patient Name', feedBackText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam hic eligendi esse minima obcaecati maiores veniam, impedit nobis rem, velit laudantium repudiandae ratione fugiat! Cum nesciunt saepe esse facilis inventore?' },
@@ -38,11 +38,11 @@ function Testimonials() {
         ))}
       </div>
       <div className="text-center">
-        <button onClick={() => setShowAll(!showAll)} className="btn btn-primary mt-4">
+        <button onClick={() => setShowAll(!showAll)} className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4">
           {showAll ? 'Show Less' : 'Show More'}
         </button>
       </div>
-      <div><Message/></div>
+      {/* <div><Message/></div> */}
     </div>
   );
 }

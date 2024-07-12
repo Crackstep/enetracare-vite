@@ -13,7 +13,7 @@ function ServiceCard({ img, text }) {
 
     return (
         <div
-            className="relative grid h-[30rem] w-full max-w-[25rem] items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700 hover:scale-[1.04] hover:duration-200 my-8" id='service-card'>
+            className="relative grid h-[30rem] w-full max-w-[25rem] items-end justify-center overflow-hidden rounded-xl  bg-clip-border text-center text-gray-700 hover:scale-[1.04] hover:duration-200 my-8" id='service-card'>
             <div
                 className={`absolute inset-0 m-0 overflow-hidden rounded-none bg-transparent bg-opacity-80`} 
                 style={{backgroundImage:`url('${imgurl}')`, 

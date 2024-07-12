@@ -31,7 +31,7 @@ function Services() {
       <div className='relative bg-white'>
         <div className='flex items-center justify-center my-20 relative' id='sec-2-video-container'>
           <h4 className='absolute m-auto text-[4vw] text-white z-20 w-3/5 text-left' id='sec-2-title'>Quick Guide: Capturing an Eye Image</h4>
-          <video className="max-h-[100vh] h-full w-full relative max-w-[100vw] z-[1] opacity-20 object-fill" controls autoPlay loop id='sec-2-video'>
+          <video className="max-h-[110vh] h-full w-full relative max-w-[100vw] z-[1] opacity-20 object-fill" controls autoPlay loop id='sec-2-video'>
             <source
               src={Vid1}
               type="video/mp4"
@@ -102,7 +102,7 @@ function Services() {
         </div>
         
 
-        <a href={Doc} download className='text-lg text-[#0E93D2] py-20 hover:underline'>
+        <a href={Doc} download className='text-lg text-[#0E93D2] hover:underline'>
           Download an example report here <i class="fa-solid fa-download"></i>
         </a>
       </div>

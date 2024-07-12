@@ -58,11 +58,11 @@ function Home() {
 
 
       {/* our services starts */}
-      <div className='h-[800px] bg-[#DFF7F9] flex flex-col items-center p-20'id='service-body' >
+      <div className=' bg-[#DFF7F9] flex flex-col items-center p-20'id='service-body' >
         <h1 className='text-5xl text-[#017F84] font-semibold'>Our Services</h1>
         <div className="divider px-20 divider-success"></div>
         <div id='service-home-box' className='container-wrap'>
-          <div className="container grid grid-cols-3 gap-8" id='service-home-container' >
+          <div className="container grid bg-white grid-cols-3 gap-8" id='service-home-container' >
 
             <div className='service-card-box'>
               <ServiceCard img={IMAGES.serviceImg}
