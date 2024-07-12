@@ -3,7 +3,7 @@
         grid-template-columns: 1fr 1fr;
     }
     #title{
-        font-size: 3.5vw;
+        font-size: 3rem;
     }
     #text-orig p{
         font-size: 2vw;
