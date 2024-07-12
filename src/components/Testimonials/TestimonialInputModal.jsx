@@ -3,7 +3,7 @@ import React from 'react'
 function TestimonialInputModal() {
   return (
     <div className='border shadow-lg rounded-lg w-2/6 absolute right-8 bottom-4'>
-      <form action='' className='flex flex-col gap-2 rounded-lg bg-[#c9c9c94b] justify-center p-10 items-center relative'>
+      <form action='' className='flex flex-col gap-2 rounded-lg bg-[#c9c9c94b] justify-center p-10  relative'>
         <label htmlFor="" className='text-[#017f84]'>Name:</label>
         <input type="text" className='bg-white outline-none p-2 text-[#000000] rounded-lg shadow-md' />
         <label htmlFor="" className='text-[#017f84]'>Feedback:</label>
@@ -20,6 +20,6 @@ function TestimonialInputModal() {
       ><i class="fa-solid fa-xmark"></i></button>
     </div>
   )
-}
+} 
 
 export default TestimonialInputModal
