@@ -73,20 +73,26 @@ function Milestones() {
                 </div>
 
             </div>
-            <button
-                onClick={(e) => {
-                    e.preventDefault()
-                    let element = count%2==0 ? createEventLeft('HelloTextblah blah lkfrfri') : createEventRight('HellowTextblah blah lkfrfri')
-                    count++;
-                    console.log(count)
-                    document.getElementById('events-container').appendChild(element)
-                    console.log(document.getElementById('events-container'))
-                    // element.innerText = 'Hellow'
+            <div className='flex items-center justify-center'>
+                <button
+                    onClick={(e) => {
+                        e.preventDefault()
+                        // let element = count % 2 == 0 ? createEventLeft('HelloTextblah blah lkfrfri') : createEventRight('HellowTextblah blah lkfrfri')
+                        // count++;
+                        // console.log(count)
+                        // document.getElementById('events-container').appendChild(element)
+                        // console.log(document.getElementById('events-container'))
+                        // element.innerText = 'Hellow'
+                        document.getElementById('input-modal').style.display = 'block'
+                        console.log('block')
+                    }}
+                    className='bg-white text-[#017f83] w-28 p-1 rounded-sm'
+                >Add Event</button>
+            </div>
 
-                }}
-            >Add Event</button>
-
-            <InputModal />
+            <div id="input-modal" className='hidden'>
+                <InputModal />
+            </div>
         </div>
 
     )

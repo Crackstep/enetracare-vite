@@ -37,9 +37,12 @@ function Testimonials() {
           />
         ))}
       </div>
-      <div className="text-center">
+      <div className="text-center flex gap-4 justify-center">
         <button onClick={() => setShowAll(!showAll)} className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4">
           {showAll ? 'Show Less' : 'Show More'}
+        </button>
+        <button  className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4">
+          Add a Testimonial
         </button>
       </div>
       {/* <div><Message/></div> */}
