@@ -96,9 +96,9 @@ function Milestones() {
         </button>
       </div>
 
-      <div id="input-modal" className="hidden">
+      {/* <div id="input-modal" className="hidden">
         <InputModal />
-      </div>
+      </div> */}
     </div>
   );
 }

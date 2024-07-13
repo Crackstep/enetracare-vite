@@ -52,9 +52,9 @@ function Testimonials() {
       {!isLoading && error && <div className='text-3xl text-center lg:mt-[15rem] md:mt-[10rem]'>Some error occured</div>}
       <div className='relative'>
 
-        <div id='testi-modal' className='hidden'>
+        {/* <div id='testi-modal' className='hidden'>
           <TestimonialInputModal />
-        </div>
+        </div> */}
       </div>
       {/* <div><Message/></div> */}
     </div>
