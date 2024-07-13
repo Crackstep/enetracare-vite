@@ -77,7 +77,7 @@ function Milestones() {
 
         </div>
       </div>
-      <div className="flex items-center justify-center">
+      {/* <div className="flex items-center justify-center">
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -94,7 +94,7 @@ function Milestones() {
         >
           Add Event
         </button>
-      </div>
+      </div> */}
 
       {/* <div id="input-modal" className="hidden">
         <InputModal />
