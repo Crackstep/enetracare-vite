@@ -10,6 +10,7 @@ import AboutImg from "./images/about-img.jpeg";
 import FeedbackCard from "./FeedbackCard";
 import useSWR from "swr";
 import Loader from "../Loader/Loader";
+import SwatiPic from './images/swati-pic.jpeg'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -59,7 +60,7 @@ function Home() {
             id="home-sec-2-title"
           >
             {" "}
-            Vision for All
+            Eye Care Par Excellence
           </h1>
         </div>
         <div className="h-2/5 flex justify-center items-center">
@@ -157,27 +158,19 @@ function Home() {
               Founder's Message
             </h1>
             <p className="text-lg text-[#017F84] p-3 inline-block">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-              earum sed eveniet dolor laborum necessitatibus aliquam nulla culpa
-              impedit consequatur vero blanditiis hic obcaecati minus in!
-              Necessitatibus quos voluptas, ipsum ipsa velit culpa eveniet eum
-              id alias doloribus recusandae quaerat ratione hic fugit soluta?
-              Odio voluptatem praesentium id blanditiis eum?Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Praesentium dicta et
-              incidunt perspiciatis, architecto possimus dolores quae reiciendis
-              magnam ab.
+            Innovease India Pvt Ltd. is dedicated to providing equitable and accessible eye care to underserved communities in India and worldwide. I am personally driven by my desire to help people reach their full vision potential, especially Cataract related blindness. We have a team of passionate and skilled professionals who share our vision of transforming lives through better eye care opportunities and removing reversible blindness. We work successfully expanding our reach, impact, and partnerships, leveraging our expertise in medical device development, and providing eye care to the underprivileged in the most inaccessible area. There is a myriad of ways to join our mission and we are open to collaborate with any organisation and individual who shares our vision and mission.  
               <span className="text-2xl font-bold font-customFont rotate-180 ">
                 &#8221;
               </span>
             </p>
           </div>
           <div id="founder-name " className="text-end text-xl my-3">
-            <p>- Founder name </p>
-            <p className="italic text-sm">Co-founder, eNetraCare</p>
+            <p>- Dr. Swati Tomar </p>
+            <p className="italic text-sm">Cofounder and Director, Innovease India Private Limited</p>
           </div>
         </div>
         <div className="founder-right">
-          <img src={IMAGES.AbhayPic} className="max-h-[400px] h-auto" />
+          <img src={IMAGES.swati} className="max-h-[400px] h-auto" />
         </div>
       </div>
       {/* home-sec-5 ends */}
