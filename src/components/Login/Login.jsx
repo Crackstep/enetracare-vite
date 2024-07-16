@@ -6,6 +6,8 @@ import Cookies from 'js-cookie';
 import Logo from './images/navbar-logo.svg'
 
 function Login() {
+  const [passType, setPassType] = useState('password');
+  const [isPassVisible, setIsPassVisible] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -57,27 +59,52 @@ function Login() {
                   <label className="label">
                     <span className="label-text text-[#017f84] font-semibold text-lg">Email:</span>
                   </label>
-                  <input
-                    type="email"
-                    placeholder="Enter email"
-                    className="input bg-white bg-opacity-35 shadow-md text-[#017f84] outline-none border-none focus:shadow-lg placeholder:text-gray-500 focus:bg-opacity-40 input-bordered"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
+                  <div className='flex items-center px-1 gap-2'>
+                    <input
+                      type="email"
+                      placeholder="Enter email"
+                      className="input bg-white bg-opacity-35 shadow-md text-[#017f84] outline-none border-none focus:shadow-lg placeholder:text-gray-500 focus:bg-opacity-40 input-bordered"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+
+
+
+                  </div>
+
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-[#017f84] text-lg font-semibold ">Password:</span>
                   </label>
-                  <input
-                    type="password"
-                    placeholder="Enter password"
-                    className="input bg-white bg-opacity-35 shadow-md text-[#017f84] outline-none border-none placeholder:text-gray-500 focus:shadow-lg focus:bg-opacity-40 input-bordered"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
+                  <div className='flex items-center gap-2 px-2'>
+                    <input
+                      type={passType}
+                      placeholder="Enter password"
+                      className="input bg-white bg-opacity-35 shadow-md text-[#017f84] outline-none border-none placeholder:text-gray-500 focus:shadow-lg focus:bg-opacity-40 input-bordered"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                    <button
+                      className='text-2xl'
+                      onClick={() => {
+                        if (!isPassVisible) {
+                          setIsPassVisible(true)
+                          setPassType('text')
+                        }
+                        else {
+                          setPassType('password')
+                          setIsPassVisible(false)
+                        }
+                      }}
+                    >
+                      {
+                        isPassVisible ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>
+                      }
+                    </button>
+                  </div>
                 </div>
                 {error && <p className="text-red-500 text-sm">{error}</p>}
                 <div className="form-control mt-6">
