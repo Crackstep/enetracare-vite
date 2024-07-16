@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import FeedBackCardOrig from "./FeedBackCardOrig";
+import "./TestimonialsCustomCSS.css";
+import TestimonialInputModal from "./TestimonialInputModal";
 import useSWR from "swr";
 import Loader from "../Loader/Loader";
-import { LucidePlus, LucideTrash, LucideEdit } from "lucide-react"; // Import Lucide icons
+import { LucidePlus, LucideTrash, LucideEdit } from "lucide-react";
 import { useAuth } from "../../context/AuthProvider";
-import FeedBackCardOrig from "./FeedBackCardOrig";
-import TestimonialInputModal from "./TestimonialInputModal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -21,13 +22,11 @@ function Testimonials() {
   const visibleTestimonials = showAll ? data?.data : data?.data?.slice(0, 4);
 
   const handleEdit = (id) => {
-    // Implement edit functionality
-    console.log(`Editing testimonial with ID: ${id}`);
+    // Implement the edit logic here
   };
 
   const handleDelete = (id) => {
-    // Implement delete functionality
-    console.log(`Deleting testimonial with ID: ${id}`);
+    // Implement the delete logic here
   };
 
   return (
@@ -43,35 +42,36 @@ function Testimonials() {
       {!isLoading && !error && (
         <div>
           <div id="container" className="grid grid-cols-3 p-3 m-4 gap-8">
-            {visibleTestimonials?.map((testimonial, index) => (
-              <div key={index} className="relative">
-                <FeedBackCardOrig
-                  name={testimonial.patientName}
-                  feedBackText={testimonial.content}
-                  patientImage={testimonial.patientImage}
-                />
-                {role === "admin" && (
-                  <div className="absolute top-2 right-2 flex items-center space-x-4">
-                    <button
-                      className="text-gray-500 hover:text-blue-500 focus:outline-none"
-                      onClick={() => handleEdit(testimonial.id)}
-                    >
-                      <div className="bg-gray-200 rounded-full p-1">
-                        <LucideEdit className="h-6 w-6" />
-                      </div>
-                    </button>
-                    <button
-                      className="text-gray-500 hover:text-red-500 focus:outline-none"
-                      onClick={() => handleDelete(testimonial.id)}
-                    >
-                      <div className="bg-gray-200 rounded-full p-1">
-                        <LucideTrash className="h-6 w-6" />
-                      </div>
-                    </button>
-                  </div>
-                )}
-              </div>
-            ))}
+            {data?.data?.length &&
+              data?.data?.map((testimonial, index) => (
+                <div key={index} className="relative">
+                  <FeedBackCardOrig
+                    name={testimonial.patientName}
+                    feedBackText={testimonial.content}
+                    patientImage={testimonial.patientImage}
+                  />
+                  {role === "admin" && (
+                    <div className="mt-2 flex gap-2 justify-center">
+                      <button
+                        className="text-gray-500 hover:text-blue-500 focus:outline-none"
+                        onClick={() => handleEdit(testimonial.id)}
+                      >
+                        <div className="bg-gray-200 rounded-full p-2">
+                          <LucideEdit className="h-5 w-5" />
+                        </div>
+                      </button>
+                      <button
+                        className="text-gray-500 hover:text-red-500 focus:outline-none"
+                        onClick={() => handleDelete(testimonial.id)}
+                      >
+                        <div className="bg-gray-200 rounded-full p-2">
+                          <LucideTrash className="h-5 w-5" />
+                        </div>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ))}
           </div>
 
           <div className="text-center flex gap-4 justify-center">
@@ -127,12 +127,7 @@ function Testimonials() {
         </div>
       )}
 
-      {openModal && (
-        <TestimonialInputModal
-          setOpenModal={setOpenModal}
-          setIsSubmitting={setIsSubmitting}
-        />
-      )}
+      {openModal && <TestimonialInputModal setOpenModal={setOpenModal} setIsSubmitting={setIsSubmitting} />}
     </div>
   );
 }

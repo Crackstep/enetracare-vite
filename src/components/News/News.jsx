@@ -20,12 +20,10 @@ function App() {
     return <div className="mx-[7%] px-4 py-8 min-h-screen">failed to load</div>;
 
   const handleEdit = (id) => {
-    // Implement edit functionality
     console.log(`Editing news with ID: ${id}`);
   };
 
   const handleDelete = (id) => {
-    // Implement delete functionality
     console.log(`Deleting news with ID: ${id}`);
   };
 
