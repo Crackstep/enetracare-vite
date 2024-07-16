@@ -258,3 +258,7 @@ footer completion
 Install Axios 
 npm i axios
 npm install react-player
+
+npm install react-datepicker date-fns
+npm install lucide-react
+npm i js-cookie
