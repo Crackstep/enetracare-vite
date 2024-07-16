@@ -38,8 +38,8 @@ function Header() {
     closed: { opacity: 0, y: -20 },
   };
 
-  const getNavLinkClass = (path1,path2) => {
-    return location.pathname === path1 ||location.pathname === path2
+  const getNavLinkClass = (path1,path2,path3) => {
+    return location.pathname === path1 ||location.pathname === path2 ||location.pathname === path3
       ? 'bg-white text-[#0E9298] font-semibold transition-all duration-300 ease-in-out transform px-4 py-2 rounded-lg shadow-md'
       : 'transition-all duration-600 ease-in-out transform px-4 py-2 rounded-lg';
   };
@@ -69,7 +69,7 @@ function Header() {
           <Link className={`px-3 ${getNavLinkClass('/services')}`} to='/services'>Services</Link>
           <div className='relative'>
             <button
-              className={`px-3 ${getNavLinkClass('/patient-resources/tips','/patient-resources/news')}`}
+              className={`px-3 ${getNavLinkClass('/patient-resources/tips','/patient-resources/news','/patient-resources/disorder')}`}
               onClick={toggleSubmenu}
             >
               Patient Resources
