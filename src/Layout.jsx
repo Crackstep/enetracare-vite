@@ -11,9 +11,8 @@ function Layout() {
   
   useEffect(()=>{
     const refToken = Cookies.get('refreshToken');
-    console.log('Refresh Token:', refToken);
-    setRefreshToken("Refresh Token",refToken);
-    console.log(refreshToken,"sd");
+    console.log('Refresh Token:', !refToken);
+    setRefreshToken(refToken);
 
     if (refToken) {
       fetchRole();  

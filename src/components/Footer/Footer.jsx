@@ -70,14 +70,15 @@ function Footer() {
               Terms
             </Link>
           </div>
-          {refreshToken ? (<div className="px-5 py-2">
-            <Link to="/signup" onClick={handleLogout} className="text-base leading-6 text-gray-500 hover:text-gray-900">
-              Logout
-            </Link>
-          </div>):(
-            <div className="px-5 py-2">
+          {!refreshToken ? (<div className="px-5 py-2">
             <Link to="/login" className="text-base leading-6 text-gray-500 hover:text-gray-900">
               Login
+            </Link>
+            
+          </div>):(
+            <div className="px-5 py-2">
+            <Link to="/signup" onClick={handleLogout} className="text-base leading-6 text-gray-500 hover:text-gray-900">
+              Logout
             </Link>
           </div>
           )}
