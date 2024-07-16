@@ -11,27 +11,28 @@ function Footer() {
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/logout`, {
-        method: 'POST',
+      const token = Cookies.get('accessToken');
+      console.log(token);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/users/logout`, {token},{
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
-      });
-  
-      if (response.ok) {
-        Cookies.remove('accessToken', { secure: true, sameSite: 'None' });
-        Cookies.remove('refreshToken', { secure: true, sameSite: 'None' });
-        setRefreshToken(null);
-        console.log('Logged Out successful:', await response.json());
-        navigate('/login');
-      } else {
-        throw new Error('Logout failed');
+        withCredentials: true,
       }
-    } catch (err) {
-      console.log('Error:', err.message);
+    );
+    if (response.status === 200) {
+      Cookies.remove('accessToken', { secure: true, sameSite: 'None' });
+      Cookies.remove('refreshToken', { secure: true, sameSite: 'None' });
+      setRefreshToken(null);
+      console.log('Logged Out successful:', response.data);
+      navigate('/login');
+    } else {
+      throw new Error('Logout failed');
     }
-  };
+  } catch (err) {
+    console.log('Error:', err.response || err.message);
+  }
+};
 
 
   return (
