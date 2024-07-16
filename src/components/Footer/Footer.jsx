@@ -12,8 +12,12 @@ function Footer() {
     e.preventDefault();
     try {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/users/logout`, {},{
-        withCredentials:true
-      });
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+      }
+    );
       Cookies.remove('accessToken', { secure: true, sameSite: 'None' });
       Cookies.remove('refreshToken', { secure: true, sameSite: 'None' });
       const refToken = Cookies.get('refreshToken');

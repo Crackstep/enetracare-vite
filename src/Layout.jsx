@@ -10,7 +10,7 @@ function Layout() {
   
   useEffect(()=>{
     const refToken = Cookies.get('refreshToken');
-    // console.log('Refresh Token:', refToken);
+    console.log('Refresh Token:', refToken);
     setRefreshToken(refToken);
   },[]);
 
