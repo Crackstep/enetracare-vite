@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { LucideFile, LucideX } from 'lucide-react';
 import axios from 'axios';
 import useSWR, { mutate } from "swr";
+import Cookies from 'js-cookie';
 
 function NewsInputModal({ setOpenModal, setIsSubmitting }) {
   const [title, setTitle] = useState('');
@@ -13,7 +14,8 @@ function NewsInputModal({ setOpenModal, setIsSubmitting }) {
     e.preventDefault();
     try {
       setIsSubmitting(true);
-      
+      const token = Cookies.get('accessToken');
+      console.log(token);
       const formData = new FormData();
       formData.append('title', title);
       formData.append('description', description);
@@ -29,6 +31,7 @@ function NewsInputModal({ setOpenModal, setIsSubmitting }) {
           withCredentials: true,
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`,
           },
         }
       );
