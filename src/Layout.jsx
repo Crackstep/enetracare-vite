@@ -21,7 +21,14 @@ function Layout() {
 
   const fetchRole = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/current-user`, {  withCredentials: true,});
+      const token = Cookies.get('accessToken');
+      console.log(token);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/users/current-user`, {token} ,{
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+      });
       const res = await response.data;
       setRole(res.data.role);
       }
