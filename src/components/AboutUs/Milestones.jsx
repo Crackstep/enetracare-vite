@@ -1,56 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import MSEventLeft from "./MSEventLeft";
 import MSEventRight from "./MSEventRight";
 import InputModal from "./InputModal";
 import useSWR from "swr";
 import Loader from "../Loader/Loader";
+import { LucidePlus } from 'lucide-react';
+import { useAuth } from "../../context/AuthProvider";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-let count = 0;
-
 function Milestones() {
+  const {role} = useAuth();
+  const [openModal, setOpenModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { data, error, isLoading } = useSWR(
     `${import.meta.env.VITE_BACKEND_URL}/milestones`,
     fetcher
   );
 
-  const createEventLeft = (text) => {
-    const element = document.createElement("div");
-    element.className = "mt-6";
-    element.innerHTML = `<div class="flex flex-col sm:flex-row items-center">
-                <div class="flex justify-start w-full mx-auto items-center">
-                    <div class="w-1/2 pr-8">
-                        <div class="p-4 bg-white rounded shadow animation">
-                           ${text}
-                        </div>
-                    </div>
-                </div>
-                <div class="rounded-full bg-[#017F98] border-white border-4 w-8 h-8 absolute left-1/2 -translate-y-4 sm:translate-y-0 transform -translate-x-1/2 flex items-center justify-center">
-                    <i class="fa-solid fa-circle text-white"></i>
-                </div>
-            </div>`;
-
-    return element;
-  };
-  const createEventRight = (text) => {
-    const element = document.createElement("div");
-    element.className = "mt-6";
-    element.innerHTML = `<div class="flex flex-col sm:flex-row items-center text-white">
-                <div class="flex justify-end w-full mx-auto items-center">
-                    <div class="w-1/2  pl-8">
-                        <div class="p-4 bg-white rounded shadow animation bg-opacity-40">
-                            ${text}
-                        </div>
-                    </div>
-                </div>
-                <div class="rounded-full bg-[#017F98] border-white border-4 w-8 h-8 absolute left-1/2 -translate-y-4 sm:translate-y-0 transform -translate-x-1/2 flex items-center justify-center">
-                    <i class="fa-solid fa-circle text-white"></i>
-                </div>
-            </div>`;
-
-    return element;
-  };
   return (
     <div className="relative min-h-screen bg-[#017F98] flex flex-col py-10 ">
       <h1 className="text-5xl text-white text-center py-4" id="milestone-title">
@@ -68,37 +35,51 @@ function Milestones() {
             data?.data?.length &&
             data.data.map((milestone, index) => {
               if (index % 2) {
-                return (<MSEventRight text={milestone.milestoneText} />)
+                return (<MSEventRight key={index} text={milestone.milestoneText} />)
               }
               else {
-                return (<MSEventLeft text={milestone.milestoneText} />)
+                return (<MSEventLeft key={index} text={milestone.milestoneText} />)
               }
             })}
-
         </div>
       </div>
-      {/* <div className="flex items-center justify-center">
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            // let element = count % 2 == 0 ? createEventLeft('HelloTextblah blah lkfrfri') : createEventRight('HellowTextblah blah lkfrfri')
-            // count++;
-            // console.log(count)
-            // document.getElementById('events-container').appendChild(element)
-            // console.log(document.getElementById('events-container'))
-            // element.innerText = 'Hellow'
-            document.getElementById("input-modal").style.display = "block";
-            console.log("block");
-          }}
-          className="bg-white text-[#017f83] w-28 p-1 rounded-sm"
-        >
-          Add Event
-        </button>
-      </div> */}
 
-      {/* <div id="input-modal" className="hidden">
-        <InputModal />
-      </div> */}
+      {role === "admin" && (
+              <button
+                className={`fixed bottom-10 right-10 bg-white p-4 rounded-full shadow-lg text-[#017F98] ${
+                  isSubmitting ? "border-4 border-gray-300 animate-spin" : ""
+                }`}
+                onClick={()=>setOpenModal(true)}
+                disabled={isSubmitting}
+              >
+                {!isSubmitting ? (
+                  <LucidePlus className="h-8 w-8" />
+                ) : (
+                  <svg
+                    className="animate-spin h-8 w-8 text-[#017F98]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V2.5A9.5 9.5 0 007.5 12H4zm2 5.291A8.004 8.004 0 014 12H2.5a9.5 9.5 0 009.5 9.5V20a8 8 0 01-5.5-2.209zM20 12a8 8 0 01-8 8v1.5a9.5 9.5 0 009.5-9.5H20zm-2-5.291A8.004 8.004 0 0120 12h1.5a9.5 9.5 0 00-9.5-9.5V4a8 8 0 015.5 2.209z"
+                    ></path>
+                  </svg>
+                )}
+              </button>
+            )}
+
+      {openModal && <InputModal setOpenModal={setOpenModal} setIsSubmitting={setIsSubmitting} />}
     </div>
   );
 }
