@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const {setRefreshToken} = useAuth();
+  const {setRefreshToken,setRole} = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +24,7 @@ function Login() {
       console.log(user);
       const refToken = Cookies.get('refreshToken');
       setRefreshToken(refToken);
+      setRole(user.role)
       navigate('/');
     } catch (err) {
       if (err.response && err.response.data) {

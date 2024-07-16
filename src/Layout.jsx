@@ -7,20 +7,24 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 function Layout() {
-  const {refreshToken,setRefreshToken,setRole} = useAuth();
+  const {refreshToken,setRefreshToken,role,setRole} = useAuth();
   
   useEffect(()=>{
     const refToken = Cookies.get('refreshToken');
     console.log('Refresh Token:', refToken);
     setRefreshToken("Refresh Token",refToken);
+    console.log(refreshToken,"sd");
 
-    fetchRole();  
+    if (refToken) {
+      fetchRole();  
+    }
   },[]);
 
   const fetchRole = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/current-user`, {  withCredentials: true,});
-        setRole(response?.data.data?.role);
+      const res = await response.data;
+      setRole(res.data.role);
       }
       catch (error){
         console.log(error);

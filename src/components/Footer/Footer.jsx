@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthProvider';
 import Cookies from 'js-cookie';
 
 function Footer() {
-  const {refreshToken,setRefreshToken} = useAuth();
+  const {refreshToken,setRefreshToken,setRole} = useAuth();
   const navigate = useNavigate();
   
   const handleLogout = async (e) => {
@@ -23,7 +23,8 @@ function Footer() {
     if (response.status === 200) {
       Cookies.remove('accessToken', { secure: true, sameSite: 'None' });
       Cookies.remove('refreshToken', { secure: true, sameSite: 'None' });
-      setRefreshToken(null);
+      setRefreshToken('');
+      setRole("user");
       console.log('Logged Out successful:', response.data);
       navigate('/login');
     } else {
