@@ -83,9 +83,9 @@ function Login() {
                 <div className="form-control mt-6">
                   <button className="btn text-white bg-[#0E9298] border-none outline-none shadow-xl hover:bg-white hover:text-[#017f84]">Login</button>
                 </div>
-                {/* <p className="mt-4 text-sm text-center">
-              Don't have an account? <Link to="/signup" className="text-[#0E9298] underline">Sign Up</Link>
-            </p> */}
+                <p className="mt-4 text-sm text-center">
+                  <Link to="/signup" className="text-[#0E9298] underline">Forgot password?</Link>
+                </p>
               </form>
             </div>
           </div>
