@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Loader from "../Loader/Loader";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import NewsInputModal from "./NewsInputModal";
-import { LucidePlus, LucideTrash, LucideEdit } from "lucide-react"; // Import Lucide icons
+import { LucidePlus, LucideTrash, LucideEdit } from "lucide-react";
 import { useAuth } from "../../context/AuthProvider";
+import axios from "axios";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -16,16 +17,25 @@ function App() {
     fetcher
   );
 
-  if (error)
-    return <div className="mx-[7%] px-4 py-8 min-h-screen">failed to load</div>;
-
   const handleEdit = (id) => {
     console.log(`Editing news with ID: ${id}`);
   };
 
-  const handleDelete = (id) => {
-    console.log(`Deleting news with ID: ${id}`);
+  const handleDelete = async (id) => {
+    setIsSubmitting(true);
+    try {
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/news/delete/${id}`, {
+        withCredentials: true
+      });
+      mutate(`${import.meta.env.VITE_BACKEND_URL}/news`);
+      setIsSubmitting(false);
+    } catch (error) {
+      console.log(error);
+      setIsSubmitting(false);
+    }
   };
+
+  if (error) return <div className="mx-[7%] px-4 py-8 min-h-screen">failed to load</div>;
 
   return (
     <div className="mx-[7%] px-4 py-8 min-h-screen relative">
@@ -36,8 +46,8 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.data.map((article, index) => {
             const date = new Date(article.createdAt);
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+            const day = String(date.getDate()).padStart(2, "0");
+            const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based
             const year = date.getFullYear();
             const formattedDate = `${day}-${month}-${year}`;
             return (
@@ -77,8 +87,8 @@ function App() {
                     <div className="absolute top-2 right-2 flex items-center space-x-4">
                       <div className="relative">
                         <button
-                          className="text-gray-500 hover:text-blue-500  focus:outline-none"
-                          onClick={() => handleEdit(article.id)}
+                          className="text-gray-500 hover:text-blue-500 focus:outline-none"
+                          onClick={() => handleEdit(article._id)}
                         >
                           <div className="bg-gray-200 rounded-full p-1">
                             <LucideEdit className="h-6 w-6" />
@@ -88,7 +98,7 @@ function App() {
                       <div className="relative">
                         <button
                           className="text-gray-500 hover:text-red-500 focus:outline-none"
-                          onClick={() => handleDelete(article.id)}
+                          onClick={() => handleDelete(article._id)}
                         >
                           <div className="bg-gray-200 rounded-full p-1">
                             <LucideTrash className="h-6 w-6" />
