@@ -5,6 +5,7 @@ import NewsInputModal from "./NewsInputModal";
 import { LucidePlus, LucideTrash, LucideEdit } from "lucide-react";
 import { useAuth } from "../../context/AuthProvider";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -22,10 +23,15 @@ function App() {
   };
 
   const handleDelete = async (id) => {
-    setIsSubmitting(true);
     try {
+      setIsSubmitting(true);
+      const token = Cookies.get('accessToken');
+      console.log(token);
       await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/news/delete/${id}`, {
-        withCredentials: true
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+        withCredentials: true,
       });
       mutate(`${import.meta.env.VITE_BACKEND_URL}/news`);
       setIsSubmitting(false);
