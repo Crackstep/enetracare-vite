@@ -39,6 +39,7 @@ function Login() {
   return (
     <div className='bg-[#9fdbe1] text-[#0E9298] min-h-[90vh] flex flex-col items-center justify-center'>
       <h1 className="text-5xl font-bold py-2 text-center ">Login to eNetraCare</h1>
+      <div className="divider divider-success px-80"></div>
       <div className='flex hero items-center justify-center gap-16'>
 
         <img src={Logo} alt="" className='h-60 drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)]' />
