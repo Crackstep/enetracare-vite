@@ -14,6 +14,8 @@ function Footer() {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/users/logout`, {},{
         withCredentials:true
       });
+      Cookies.remove('accessToken', { secure: true, sameSite: 'None' });
+      Cookies.remove('refreshToken', { secure: true, sameSite: 'None' });
       const refToken = Cookies.get('refreshToken');
       setRefreshToken(refToken);
       console.log('Logged Out successful:', response.data);
