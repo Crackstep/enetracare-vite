@@ -1,7 +1,31 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { useAuth } from '../../context/AuthProvider';
+import Cookies from 'js-cookie';
 
 function Footer() {
+  const {refreshToken,setRefreshToken} = useAuth();
+  const navigate = useNavigate();
+  
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/users/logout`, {},{
+        withCredentials:true
+      });
+      Cookies.remove('accessToken', { secure: true, sameSite: 'None' });
+      Cookies.remove('refreshToken', { secure: true, sameSite: 'None' });
+      const refToken = Cookies.get('refreshToken');
+      setRefreshToken(refToken);
+      console.log('Logged Out successful:', response.data);
+      navigate('/login');
+    } catch (err) {
+      console.log('Error:', err.response);
+    }
+  };
+
+
   return (
     <section className="bg-gray-300">
       <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
@@ -36,6 +60,17 @@ function Footer() {
               Terms
             </Link>
           </div>
+          {refreshToken ? (<div className="px-5 py-2">
+            <Link to="/signup" onClick={handleLogout} className="text-base leading-6 text-gray-500 hover:text-gray-900">
+              Logout
+            </Link>
+          </div>):(
+            <div className="px-5 py-2">
+            <Link to="/login" className="text-base leading-6 text-gray-500 hover:text-gray-900">
+              Login
+            </Link>
+          </div>
+          )}
         </nav>
         <div className="flex justify-center mt-8 space-x-6">
           <a href="#" className="text-gray-400 hover:text-gray-500">

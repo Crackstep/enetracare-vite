@@ -12,6 +12,9 @@ import Contact from './components/Contact/ContactUs.jsx'
 import Tips from './components/Tips/Tips.jsx'
 import News from './components/News/News.jsx'
 import Disorder from './components/Disorder/Disorder.jsx'
+import Signup from './components/Signup/Signup.jsx'
+import Login from './components/Login/Login.jsx'
+import { AuthProvider } from './context/AuthProvider.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +26,8 @@ const router = createBrowserRouter(
       <Route path='patient-resources/news' element={<News />} ></Route>
       <Route path='patient-resources/disorder' element={<Disorder />} ></Route>
 
+      <Route path='login' element={<Login/>} />
+      <Route path='signup' element={<Signup />} />
       <Route path='testimonials' element={<Testimonials />} />
       <Route path='contact-us' element={<Contact />} />
     </Route>
@@ -31,6 +36,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
