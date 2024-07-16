@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import FeedBackCardOrig from "./FeedBackCardOrig";
-import "./TestimonialsCustomCSS.css";
-import TestimonialInputModal from "./TestimonialInputModal";
+import React, { useState } from "react";
 import useSWR from "swr";
 import Loader from "../Loader/Loader";
-import { LucidePlus } from "lucide-react";
+import { LucidePlus, LucideTrash, LucideEdit } from "lucide-react"; // Import Lucide icons
 import { useAuth } from "../../context/AuthProvider";
+import FeedBackCardOrig from "./FeedBackCardOrig";
+import TestimonialInputModal from "./TestimonialInputModal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -21,6 +20,16 @@ function Testimonials() {
 
   const visibleTestimonials = showAll ? data?.data : data?.data?.slice(0, 4);
 
+  const handleEdit = (id) => {
+    // Implement edit functionality
+    console.log(`Editing testimonial with ID: ${id}`);
+  };
+
+  const handleDelete = (id) => {
+    // Implement delete functionality
+    console.log(`Deleting testimonial with ID: ${id}`);
+  };
+
   return (
     <div className="min-h-screen my-8">
       <h1
@@ -34,15 +43,35 @@ function Testimonials() {
       {!isLoading && !error && (
         <div>
           <div id="container" className="grid grid-cols-3 p-3 m-4 gap-8">
-            {data?.data?.length &&
-              data?.data?.map((testimonial, index) => (
+            {visibleTestimonials?.map((testimonial, index) => (
+              <div key={index} className="relative">
                 <FeedBackCardOrig
-                  key={index}
                   name={testimonial.patientName}
                   feedBackText={testimonial.content}
                   patientImage={testimonial.patientImage}
                 />
-              ))}
+                {role === "admin" && (
+                  <div className="absolute top-2 right-2 flex items-center space-x-4">
+                    <button
+                      className="text-gray-500 hover:text-blue-500 focus:outline-none"
+                      onClick={() => handleEdit(testimonial.id)}
+                    >
+                      <div className="bg-gray-200 rounded-full p-1">
+                        <LucideEdit className="h-6 w-6" />
+                      </div>
+                    </button>
+                    <button
+                      className="text-gray-500 hover:text-red-500 focus:outline-none"
+                      onClick={() => handleDelete(testimonial.id)}
+                    >
+                      <div className="bg-gray-200 rounded-full p-1">
+                        <LucideTrash className="h-6 w-6" />
+                      </div>
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
 
           <div className="text-center flex gap-4 justify-center">
@@ -58,7 +87,7 @@ function Testimonials() {
                 className={`fixed bottom-10 right-10 bg-white p-4 rounded-full shadow-lg text-[#017F98] ${
                   isSubmitting ? "border-4 border-gray-300 animate-spin" : ""
                 }`}
-                onClick={()=>setOpenModal(true)}
+                onClick={() => setOpenModal(true)}
                 disabled={isSubmitting}
               >
                 {!isSubmitting ? (
@@ -98,7 +127,12 @@ function Testimonials() {
         </div>
       )}
 
-      {openModal && <TestimonialInputModal setOpenModal={setOpenModal} setIsSubmitting={setIsSubmitting} />}
+      {openModal && (
+        <TestimonialInputModal
+          setOpenModal={setOpenModal}
+          setIsSubmitting={setIsSubmitting}
+        />
+      )}
     </div>
   );
 }
