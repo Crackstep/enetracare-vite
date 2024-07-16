@@ -1,22 +1,45 @@
 import React, { useState } from 'react';
 import { LucideFile, LucideX } from 'lucide-react';
+import axios from 'axios';
+import useSWR, { mutate } from "swr";
 
-function NewsInputModal({ setOpenModal,setIsSubmitting }) {
+function NewsInputModal({ setOpenModal, setIsSubmitting }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Title:', title);
-    console.log('Description:', description);
-    console.log('Image:', image);
-    setOpenModal(false);
-    setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      setIsSubmitting(true);
+      
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('description', description);
+      if (image) {
+        formData.append('image', image);
+      }
+
+      setOpenModal(false);
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/news/post`,
+        formData,
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
+      
+      console.log(response.data);
+      mutate(`${import.meta.env.VITE_BACKEND_URL}/news`);
       setIsSubmitting(false);
-    }, 5000);
+    } catch (error) {
+      console.log("Error : ", error);
+      setIsSubmitting(false);
+    }
   };
 
   const handleImageChange = (e) => {
