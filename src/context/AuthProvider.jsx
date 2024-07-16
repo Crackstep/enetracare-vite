@@ -4,9 +4,10 @@ const AuthContext = createContext();
 
 const AuthProvider = (props)=>{
     const [refreshToken,setRefreshToken] = useState('');
+    const [role,setRole] = useState('user');
 
     return (
-        <AuthContext.Provider value={{refreshToken,setRefreshToken}}>
+        <AuthContext.Provider value={{refreshToken,setRefreshToken,role,setRole}}>
             {props.children}
         </AuthContext.Provider>
     );

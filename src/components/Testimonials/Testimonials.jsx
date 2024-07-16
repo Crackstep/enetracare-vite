@@ -6,10 +6,13 @@ import Message from './Message/Message'
 import TestimonialInputModal from './TestimonialInputModal';
 import useSWR from "swr";
 import Loader from "../Loader/Loader";
+import { CirclePlus } from 'lucide-react';
+import {useAuth} from "../../context/AuthProvider"
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function Testimonials() {
+  const {role} = useAuth();
   const [showAll, setShowAll] = useState(false);
   const { data, error, isLoading } = useSWR(`${import.meta.env.VITE_BACKEND_URL}/testimonials`,fetcher);
 
@@ -35,14 +38,9 @@ function Testimonials() {
         <button onClick={() => setShowAll(!showAll)} className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4">
           {showAll ? 'Show Less' : 'Show More'}
         </button>
-        <button 
-        className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4"
-        onClick={()=>{
-          document.getElementById('testi-modal').style.display = 'block'
-        }}
-        >
-          Add a Testimonial
-        </button>
+        {role==="admin" && <button className="bg-[#017f84] text-white p-3 rounded-md text-lg mt-4">
+          <CirclePlus />
+        </button>}
       </div>
       </div>
       }
