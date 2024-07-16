@@ -18,16 +18,19 @@ function Footer() {
         withCredentials: true,
       }
     );
+    if (response.status === 200) {
       Cookies.remove('accessToken', { secure: true, sameSite: 'None' });
       Cookies.remove('refreshToken', { secure: true, sameSite: 'None' });
-      const refToken = Cookies.get('refreshToken');
-      setRefreshToken(refToken);
+      setRefreshToken(null);
       console.log('Logged Out successful:', response.data);
       navigate('/login');
-    } catch (err) {
-      console.log('Error:', err.response);
+    } else {
+      throw new Error('Logout failed');
     }
-  };
+  } catch (err) {
+    console.log('Error:', err.response || err.message);
+  }
+};
 
 
   return (
