@@ -6,20 +6,24 @@ import { LucidePlus, LucideTrash, LucideEdit } from "lucide-react";
 import { useAuth } from "../../context/AuthProvider";
 import axios from "axios";
 import Cookies from "js-cookie";
+import NewsEditModal from "./EditNewsModal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function App() {
   const { role } = useAuth();
   const [openModal, setOpenModal] = useState(false);
+  const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [news,setNews] = useState({});
   const { data, error, isLoading } = useSWR(
     `${import.meta.env.VITE_BACKEND_URL}/news`,
     fetcher
   );
 
-  const handleEdit = (id) => {
-    console.log(`Editing news with ID: ${id}`);
+  const handleEditModal = (article) => {
+    setNews(article);
+    setOpenUpdateModal(true);
   };
 
   const handleDelete = async (id) => {
@@ -48,12 +52,12 @@ function App() {
       <div className="text-[#017F84] text-4xl lg:text-7xl font-semibold mb-10 text-center">
         News Section
       </div>
-      {!isLoading && data?.data.length && (
+      {!isLoading && data?.data?.length && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.data.map((article, index) => {
             const date = new Date(article.createdAt);
             const day = String(date.getDate()).padStart(2, "0");
-            const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based
+            const month = String(date.getMonth() + 1).padStart(2, "0");
             const year = date.getFullYear();
             const formattedDate = `${day}-${month}-${year}`;
             return (
@@ -80,21 +84,14 @@ function App() {
                       <span className="font-semibold">Date:</span>{" "}
                       {formattedDate}
                     </p>
-                    <a
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Read more
-                    </a>
+                    
                   </div>
                   {role === "admin" && (
                     <div className="absolute top-2 right-2 flex items-center space-x-4">
                       <div className="relative">
                         <button
                           className="text-gray-500 hover:text-blue-500 focus:outline-none"
-                          onClick={() => handleEdit(article._id)}
+                          onClick={() => handleEditModal(article)}
                         >
                           <div className="bg-gray-200 rounded-full p-1">
                             <LucideEdit className="h-6 w-6" />
@@ -161,6 +158,13 @@ function App() {
         <NewsInputModal
           setOpenModal={setOpenModal}
           setIsSubmitting={setIsSubmitting}
+        />
+      )}
+      {openUpdateModal && (
+        <NewsEditModal
+          setOpenUpdateModal={setOpenUpdateModal}
+          setIsSubmitting={setIsSubmitting}
+          news={news}
         />
       )}
     </div>
