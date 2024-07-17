@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LucideX } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -6,9 +6,14 @@ import Cookies from 'js-cookie';
 import { mutate } from 'swr';
 import axios from 'axios';
 
-function InputModal({ setOpenModal,setIsSubmitting }) {
+function UpdateModal({ setOpenUpdateModal,setIsSubmitting,milestone}) {
   const [date, setDate] = useState(null);
   const [text, setText] = useState('');
+
+  useEffect(()=>{
+    setDate(milestone.milestoneDate);
+    setText(milestone.milestoneText);
+  },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,10 +21,10 @@ function InputModal({ setOpenModal,setIsSubmitting }) {
       setIsSubmitting(true);
       const token = Cookies.get('accessToken');
       console.log(token);
-      setOpenModal(false);
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/milestones/post`,
-        {milestoneText:text,milestoneDate:date},
+      setOpenUpdateModal(false);
+      const response = await axios.patch(
+        `${import.meta.env.VITE_BACKEND_URL}/milestones/update-content/${milestone._id}`,
+        {newMilestoneText:text,newMilestoneDate:date},
         {
           withCredentials: true,
           headers: {
@@ -44,7 +49,7 @@ function InputModal({ setOpenModal,setIsSubmitting }) {
           <button
             type='button'
             className='absolute top-2 right-2 text-[#017f84] px-2 text-xl rounded-full'
-            onClick={() => setOpenModal(false)}
+            onClick={() => setOpenUpdateModal(false)}
           >
             <LucideX className='h-6 w-6' />
           </button>
@@ -82,4 +87,4 @@ function InputModal({ setOpenModal,setIsSubmitting }) {
   );
 }
 
-export default InputModal;
+export default UpdateModal;

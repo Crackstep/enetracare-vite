@@ -6,20 +6,23 @@ import useSWR from "swr";
 import Loader from "../Loader/Loader";
 import { LucidePlus } from 'lucide-react';
 import { useAuth } from "../../context/AuthProvider";
+import UpdateModal from "./UpdateModal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 function Milestones() {
   const {role} = useAuth();
   const [openModal, setOpenModal] = useState(false);
+  const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [milestone,setMilestone] = useState({});
   const { data, error, isLoading } = useSWR(
     `${import.meta.env.VITE_BACKEND_URL}/milestones`,
     fetcher
   );
 
   return (
-    <div className="relative min-h-screen bg-[#017F98] flex flex-col py-10 ">
+    <div className="relative bg-[#017F98] flex flex-col py-20 ">
       <h1 className="text-5xl text-white text-center py-4" id="milestone-title">
         MILESTONES
       </h1>
@@ -35,10 +38,10 @@ function Milestones() {
             data?.data?.length &&
             data.data.map((milestone, index) => {
               if (index % 2) {
-                return (<MSEventRight key={index} text={milestone.milestoneText} />)
+                return (<MSEventRight setIsSubmitting={setIsSubmitting} setOpenUpdateModal={setOpenUpdateModal} setMilestone={setMilestone} key={index} milestone={milestone} />)
               }
               else {
-                return (<MSEventLeft key={index} text={milestone.milestoneText} />)
+                return (<MSEventLeft setIsSubmitting={setIsSubmitting} setOpenUpdateModal={setOpenUpdateModal} setMilestone={setMilestone} key={index} milestone={milestone} />)
               }
             })}
         </div>
@@ -80,6 +83,7 @@ function Milestones() {
             )}
 
       {openModal && <InputModal setOpenModal={setOpenModal} setIsSubmitting={setIsSubmitting} />}
+      {openUpdateModal && <UpdateModal setOpenUpdateModal={setOpenUpdateModal} milestone={milestone} setIsSubmitting={setIsSubmitting} />}
     </div>
   );
 }
