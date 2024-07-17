@@ -105,39 +105,39 @@ function Testimonials() {
             </button>
 
             {role === "admin" && (
-              <button
-                className={`fixed bottom-10 right-10 bg-white p-4 rounded-full shadow-lg text-[#017F98] ${
-                  isSubmitting ? "border-4 border-gray-300 animate-spin" : ""
-                }`}
-                onClick={() => setOpenModal(true)}
-                disabled={isSubmitting}
-              >
-                {!isSubmitting ? (
-                  <LucidePlus className="h-8 w-8" />
-                ) : (
-                  <svg
-                    className="animate-spin h-8 w-8 text-[#017F98]"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V2.5A9.5 9.5 0 007.5 12H4zm2 5.291A8.004 8.004 0 014 12H2.5a9.5 9.5 0 009.5 9.5V20a8 8 0 01-5.5-2.209zM20 12a8 8 0 01-8 8v1.5a9.5 9.5 0 009.5-9.5H20zm-2-5.291A8.004 8.004 0 0120 12h1.5a9.5 9.5 0 00-9.5-9.5V4a8 8 0 015.5 2.209z"
-                    ></path>
-                  </svg>
-                )}
-              </button>
-            )}
+        <button
+          className={`fixed bottom-10 right-10 bg-[#017F84] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#015f64] ${
+            isSubmitting ? "border-4 border-gray-300 animate-spin" : ""
+          }`}
+          onClick={() => setOpenModal(true)}
+          disabled={isSubmitting}
+        >
+          {!isSubmitting ? (
+            <LucidePlus className="h-8 w-8" />
+          ) : (
+            <svg
+              className="animate-spin h-8 w-8 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V2.5A9.5 9.5 0 007.5 12H4zm2 5.291A8.004 8.004 0 014 12H2.5a9.5 9.5 0 009.5 9.5V20a8 8 0 01-5.5-2.209zM20 12a8 8 0 01-8 8v1.5a9.5 9.5 0 009.5-9.5H20zm-2-5.291A8.004 8.004 0 0120 12h1.5a9.5 9.5 0 00-9.5-9.5V4a8 8 0 015.5 2.209z"
+              ></path>
+            </svg>
+          )}
+        </button>
+      )}
           </div>
         </div>
       )}
