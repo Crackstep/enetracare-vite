@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import FeedBackCardOrig from "./FeedBackCardOrig";
 import "./TestimonialsCustomCSS.css";
 import TestimonialInputModal from "./TestimonialInputModal";
-import useSWR from "swr";
+import useSWR,{mutate} from "swr";
 import Loader from "../Loader/Loader";
 import { LucidePlus, LucideTrash, LucideEdit } from "lucide-react";
 import { useAuth } from "../../context/AuthProvider";
+import Cookies from "js-cookie";
+import axios from "axios";
+import EditTestimonialModal from "./EditTestimonialModal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -14,6 +17,8 @@ function Testimonials() {
   const [showAll, setShowAll] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [testimonial,setTestimonial] = useState({})
+  const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const { data, error, isLoading } = useSWR(
     `${import.meta.env.VITE_BACKEND_URL}/testimonials`,
     fetcher
@@ -21,12 +26,29 @@ function Testimonials() {
 
   const visibleTestimonials = showAll ? data?.data : data?.data?.slice(0, 4);
 
-  const handleEdit = (id) => {
-    // Implement the edit logic here
+
+  const handleEditModal = (testimonial) => {
+    setTestimonial(testimonial);
+    setOpenUpdateModal(true);
   };
 
-  const handleDelete = (id) => {
-    // Implement the delete logic here
+  const handleDelete = async (id) => {
+    try {
+      setIsSubmitting(true);
+      const token = Cookies.get('accessToken');
+      console.log(token);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/testimonials/delete/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+        withCredentials: true,
+      });
+      mutate(`${import.meta.env.VITE_BACKEND_URL}/testimonials`);
+      setIsSubmitting(false);
+    } catch (error) {
+      console.log(error);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,7 +76,7 @@ function Testimonials() {
                     <div className="mt-2 flex gap-2 justify-center">
                       <button
                         className="text-gray-500 hover:text-blue-500 focus:outline-none"
-                        onClick={() => handleEdit(testimonial.id)}
+                        onClick={() => handleEditModal(testimonial)}
                       >
                         <div className="bg-gray-200 rounded-full p-2">
                           <LucideEdit className="h-5 w-5" />
@@ -62,7 +84,7 @@ function Testimonials() {
                       </button>
                       <button
                         className="text-gray-500 hover:text-red-500 focus:outline-none"
-                        onClick={() => handleDelete(testimonial.id)}
+                        onClick={() => handleDelete(testimonial._id)}
                       >
                         <div className="bg-gray-200 rounded-full p-2">
                           <LucideTrash className="h-5 w-5" />
@@ -128,6 +150,13 @@ function Testimonials() {
       )}
 
       {openModal && <TestimonialInputModal setOpenModal={setOpenModal} setIsSubmitting={setIsSubmitting} />}
+      {openUpdateModal && (
+        <EditTestimonialModal
+          setOpenUpdateModal={setOpenUpdateModal}
+          setIsSubmitting={setIsSubmitting}
+          testimonial={testimonial}
+        />
+      )}
     </div>
   );
 }

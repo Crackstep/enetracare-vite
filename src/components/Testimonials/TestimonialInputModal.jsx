@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { LucideFile, LucideX } from 'lucide-react'; // Assuming Lucide icons
+import { LucideFile, LucideX } from 'lucide-react'; 
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import useSWR, { mutate } from "swr";
 
 function TestimonialInputModal({ setOpenModal,setIsSubmitting }) {
   const [name, setName] = useState('');
@@ -7,16 +10,38 @@ function TestimonialInputModal({ setOpenModal,setIsSubmitting }) {
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Name:', name);
-    console.log('Feedback:', feedback);
-    console.log('Image:', image);
-    setOpenModal(false);
-    setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      setIsSubmitting(true);
+      const token = Cookies.get('accessToken');
+      console.log(token);
+      const formData = new FormData();
+      formData.append('patientName', name);
+      formData.append('content', feedback);
+      if (image) {
+        formData.append('image', image);
+      }
+      setOpenModal(false);
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/testimonials/post`,
+        formData,
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+      );
+      
+      console.log(response.data);
+      mutate(`${import.meta.env.VITE_BACKEND_URL}/testimonials`);
       setIsSubmitting(false);
-    }, 5000);
+    } catch (error) {
+      console.log("Error : ", error);
+      setIsSubmitting(false);
+    }
   };
 
   const handleImageChange = (e) => {

@@ -4,18 +4,18 @@ import axios from 'axios';
 import useSWR, { mutate } from 'swr';
 import Cookies from 'js-cookie';
 
-function NewsEditModal({ setOpenUpdateModal, news, setIsSubmitting }) {
+function EditTestimonialModal({ setOpenUpdateModal, testimonial, setIsSubmitting }) {
   const [id, setId] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [patientName, setPatientName] = useState("");
+  const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
 
   useEffect(()=>{
-    setId(news._id)
-    setTitle(news.title);
-    setDescription(news.description);
-    setImagePreview(news.image);
+    setId(testimonial._id)
+    setPatientName(testimonial.patientName);
+    setContent(testimonial.content);
+    setImagePreview(testimonial.patientImage);
   },[]);
 
   const handleSubmit = async (e) => {
@@ -30,7 +30,7 @@ function NewsEditModal({ setOpenUpdateModal, news, setIsSubmitting }) {
         formData.append('image', image);
 
         const response = await axios.patch(
-          `${import.meta.env.VITE_BACKEND_URL}/news/update-image/${id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/testimonials/update-image/${id}`,
           formData,
           {
             withCredentials: true,
@@ -43,9 +43,9 @@ function NewsEditModal({ setOpenUpdateModal, news, setIsSubmitting }) {
       console.log(response.data);
       }
 
-      if(news.title!== title || news.description !== description){
+      if(testimonial.patientName!== patientName || testimonial.content !== content){
         const response = await axios.patch(
-          `${import.meta.env.VITE_BACKEND_URL}/news/update-content/${id}`,{newTitle:title,newDescription:description},{
+          `${import.meta.env.VITE_BACKEND_URL}/testimonials/update-content/${id}`,{newPatientName:patientName,newContent:content},{
             withCredentials: true,
             headers: {
               'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function NewsEditModal({ setOpenUpdateModal, news, setIsSubmitting }) {
       console.log(response.data);
       
       }
-      mutate(`${import.meta.env.VITE_BACKEND_URL}/news`);
+      mutate(`${import.meta.env.VITE_BACKEND_URL}/testimonials`);
       setIsSubmitting(false);
       
     } catch (error) {
@@ -88,28 +88,28 @@ function NewsEditModal({ setOpenUpdateModal, news, setIsSubmitting }) {
             <LucideX className="h-6 w-6" />
           </button>
           <div className="flex flex-col">
-            <label htmlFor="title" className="text-[#017f84]">
-              Title:
+            <label htmlFor="patientName" className="text-[#017f84]">
+              Paient Name:
             </label>
             <input
               type="text"
-              id="title"
+              id="patientName"
               className="bg-white outline-none p-2 text-[#000000] rounded-lg shadow-md"
-              value={title}
-              placeholder="Enter Title"
-              onChange={(e) => setTitle(e.target.value)}
+              value={patientName}
+              placeholder="Enter Patient Name"
+              onChange={(e) => setPatientName(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="description" className="text-[#017f84]">
-              Description:
+            <label htmlFor="content" className="text-[#017f84]">
+              Feedback:
             </label>
             <textarea
-              id="description"
+              id="content"
               className="bg-white text-[#000000] p-2 rounded-lg shadow-md"
-              value={description}
-              placeholder="Enter Description"
-              onChange={(e) => setDescription(e.target.value)}
+              value={content}
+              placeholder="Enter Feedback"
+              onChange={(e) => setContent(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
@@ -153,4 +153,4 @@ function NewsEditModal({ setOpenUpdateModal, news, setIsSubmitting }) {
   );
 }
 
-export default NewsEditModal;
+export default EditTestimonialModal;
