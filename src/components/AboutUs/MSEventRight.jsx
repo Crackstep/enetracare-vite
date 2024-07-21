@@ -1,11 +1,8 @@
 import React from 'react';
 import { LucideEdit, LucideTrash } from 'lucide-react';
 import { useAuth } from '../../context/AuthProvider';
-import Cookies from 'js-cookie';
-import { mutate } from 'swr';
-import axios from 'axios';
 
-function MSEventRight({ milestone,setIsSubmitting,setMilestone,setOpenUpdateModal}) {
+function MSEventRight({ milestone,setId,setMilestone,setOpenUpdateModal,setVisibility}) {
 
     const {role} = useAuth();
 
@@ -13,25 +10,11 @@ function MSEventRight({ milestone,setIsSubmitting,setMilestone,setOpenUpdateModa
         setMilestone(milestone);
         setOpenUpdateModal(true);
     }
-    
-    const handleDelete = async (id) => {
-        try {
-          setIsSubmitting(true);
-          const token = Cookies.get('accessToken');
-          console.log(token);
-          await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/milestones/delete/${id}`, {
-            headers: {
-              'Authorization': `Bearer ${token}`,
-            },
-            withCredentials: true,
-          });
-          mutate(`${import.meta.env.VITE_BACKEND_URL}/milestones`);
-          setIsSubmitting(false);
-        } catch (error) {
-          console.log(error);
-          setIsSubmitting(false);
-        }
-      };
+
+    const handleDelete = ()=>{
+        setId(milestone._id)
+        setVisibility('block');
+    }
 
     return (
         <div className="mt-6 relative">
@@ -54,7 +37,7 @@ function MSEventRight({ milestone,setIsSubmitting,setMilestone,setOpenUpdateModa
                     </button>
                     <button
                         className="text-gray-500 hover:text-red-500 focus:outline-none"
-                        onClick={()=>handleDelete(milestone._id)}
+                        onClick={handleDelete}
                     >
                         <div className="bg-gray-200 rounded-full p-2">
                             <LucideTrash className="h-4 w-4" />

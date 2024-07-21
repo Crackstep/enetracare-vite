@@ -231,7 +231,6 @@ function Home() {
         )}
       </div>
       {/* home-sec-6 ends */}
-      {/* <DeleteModal /> */}
     </div>
   );
 }

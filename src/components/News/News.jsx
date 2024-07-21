@@ -7,6 +7,7 @@ import { useAuth } from "../../context/AuthProvider";
 import axios from "axios";
 import Cookies from "js-cookie";
 import NewsEditModal from "./EditNewsModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -16,6 +17,8 @@ function App() {
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [news, setNews] = useState({});
+  const [visibility, setVisibility] = useState('hidden');
+  const [id, setId] = useState(null);
   const { data, error, isLoading } = useSWR(
     `${import.meta.env.VITE_BACKEND_URL}/news`,
     fetcher
@@ -99,7 +102,7 @@ function App() {
                       </button>
                       <button
                         className="text-gray-500 hover:text-red-500 focus:outline-none"
-                        onClick={() => handleDelete(article._id)}
+                        onClick={()=>{setVisibility('block');setId(article._id)}}
                       >
                         <div className="bg-gray-200 rounded-full p-1">
                           <LucideTrash className="h-6 w-6" />
@@ -166,6 +169,9 @@ function App() {
           news={news}
         />
       )}
+    
+    <DeleteModal onDelete={()=>handleDelete(id)} visibility={visibility} setVisibility={setVisibility} />
+
     </div>
   );
 }

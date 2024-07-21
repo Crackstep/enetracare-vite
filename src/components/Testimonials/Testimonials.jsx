@@ -9,6 +9,7 @@ import { useAuth } from "../../context/AuthProvider";
 import Cookies from "js-cookie";
 import axios from "axios";
 import EditTestimonialModal from "./EditTestimonialModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,6 +20,8 @@ function Testimonials() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [testimonial,setTestimonial] = useState({})
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
+  const [visibility, setVisibility] = useState('hidden');
+  const [id, setId] = useState(null);
   const { data, error, isLoading } = useSWR(
     `${import.meta.env.VITE_BACKEND_URL}/testimonials`,
     fetcher
@@ -84,7 +87,7 @@ function Testimonials() {
                       </button>
                       <button
                         className="text-gray-500 hover:text-red-500 focus:outline-none"
-                        onClick={() => handleDelete(testimonial._id)}
+                        onClick={() => {setVisibility('block');setId(testimonial._id)}}
                       >
                         <div className="bg-gray-200 rounded-full p-2">
                           <LucideTrash className="h-5 w-5" />
@@ -157,6 +160,9 @@ function Testimonials() {
           testimonial={testimonial}
         />
       )}
+    
+    <DeleteModal onDelete={()=>handleDelete(id)} visibility={visibility} setVisibility={setVisibility} />
+
     </div>
   );
 }
