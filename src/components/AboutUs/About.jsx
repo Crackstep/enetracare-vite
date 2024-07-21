@@ -127,7 +127,7 @@ const AboutUs = () => {
         initial="hidden"
         animate={controls}
         variants={sectionVariants}
-        className='py-16 px-4'
+        className='py-16'
         id="milestones"
       >
         <Milestones />
