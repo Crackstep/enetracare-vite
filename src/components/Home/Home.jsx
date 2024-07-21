@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-// import Carousel from './Carousel';
 import eyeMask from "./images/eye-mask.svg";
 import { CarouselDefault } from "./CarouselDefault";
 import ServiceCard from "./ServiceCard";
@@ -11,9 +10,14 @@ import FeedbackCard from "./FeedbackCard";
 import useSWR from "swr";
 import Loader from "../Loader/Loader";
 import SwatiPic from './images/swati-pic.jpeg'
-import DeleteModal from "../DeleteModal/DeleteModal";
+import { motion } from "framer-motion";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
 
 function Home() {
   const { data, error, isLoading } = useSWR(
@@ -26,28 +30,50 @@ function Home() {
 
   return (
     <div className="">
-      {/* home-sec-1 starts */}
-      <div
-        className="h-screen -mt-20 bg-[#DFF7F9] flex flex-col-reverse px-[5%] lg:flex-row justify-center items-center"
-        id="home-home-sec-1"
-      >
+      {/* Adjust margin-top to prevent overlap */}
+      <div className="h-screen -mt-20 bg-[#DFF7F9] flex flex-col-reverse px-[5%] lg:flex-row justify-center items-center" id="home-home-sec-1">
         <div className="text-center lg:text-left">
-          <p className="text-[#017F84] text-4xl lg:text-7xl font-semibold mb-4 lg:mb-10">
+          <motion.p
+            className="text-[#017F84] text-4xl lg:text-7xl font-semibold mb-4 lg:mb-10"
+            id="home-home-sec-1-title"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+          >
             Welcome to eNetraCare
-          </p>
-          <p className="text-[#017F84] text-3xl lg:text-6xl font-medium mb-1">
+          </motion.p>
+          <motion.p
+            className="text-[#017F84] text-3xl lg:text-6xl font-medium mb-1"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+          >
             Your trusted
-          </p>
-          <p className="text-[#017F84] text-3xl lg:text-6xl font-medium mb-4">
+          </motion.p>
+          <motion.p
+            className="text-[#017F84] text-3xl lg:text-6xl font-medium mb-4"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+          >
             Eye Care Center
-          </p>
-          <button className="bg-[#017F84] mt-6 lg:mt-14 text-white py-2 px-4 text-base lg:text-xl font-light rounded-full">
+          </motion.p>
+          <motion.button
+            className="bg-[#017F84] mt-6 lg:mt-14 text-white py-2 px-4 text-base lg:text-xl font-light rounded-full"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+          >
             Get in touch →
-          </button>
+          </motion.button>
         </div>
-        <div className="">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariants}
+        >
           <img src={eyeMask} alt="eye-mask" className="w-auto" />
-        </div>
+        </motion.div>
       </div>
       {/* home-sec-1 ends */}
 
@@ -95,11 +121,14 @@ function Home() {
         </div>
 
         <div id="home-sec-3-img">
-          <img
+          <motion.img
             src={AboutImg}
             className="max-h-[48vh] rounded-md hover:scale-110 hover:duration-300 shadow-xl"
             id="intro-img"
             alt="about-img.jpg"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
           />
         </div>
       </div>
@@ -121,25 +150,24 @@ function Home() {
             className="container grid bg-white grid-cols-3 gap-8"
             id="service-home-container"
           >
-            <div className="service-card-box">
+            <motion.div className="service-card-box" initial="hidden" animate="visible" variants={fadeInVariants}>
               <ServiceCard
                 img={IMAGES.serviceImg}
                 text="Rural-to-Rural Cataract Screening"
               />
-            </div>
-
-            <div className="service-card-box">
+            </motion.div>
+            <motion.div className="service-card-box" initial="hidden" animate="visible" variants={fadeInVariants}>
               <ServiceCard
                 img={IMAGES.eyeImg}
                 text="Immediate Cataract Health Status"
               />
-            </div>
-            <div className="service-card-box">
+            </motion.div>
+            <motion.div className="service-card-box" initial="hidden" animate="visible" variants={fadeInVariants}>
               <ServiceCard
                 img={IMAGES.prodImg}
                 text="Quick, Sharp Eye Imaging for Cataracts"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -159,7 +187,19 @@ function Home() {
               Founder's Message
             </h1>
             <p className="text-lg text-[#017F84] p-3 inline-block">
-            Innovease India Pvt Ltd. is dedicated to providing equitable and accessible eye care to underserved communities in India and worldwide. I am personally driven by my desire to help people reach their full vision potential, especially Cataract related blindness. We have a team of passionate and skilled professionals who share our vision of transforming lives through better eye care opportunities and removing reversible blindness. We work successfully expanding our reach, impact, and partnerships, leveraging our expertise in medical device development, and providing eye care to the underprivileged in the most inaccessible area. There is a myriad of ways to join our mission and we are open to collaborate with any organisation and individual who shares our vision and mission.  
+              Innovease India Pvt Ltd. is dedicated to providing equitable and
+              accessible eye care to underserved communities in India and
+              worldwide. I am personally driven by my desire to help people
+              reach their full vision potential, especially Cataract related
+              blindness. We have a team of passionate and skilled professionals
+              who share our vision of transforming lives through better eye care
+              opportunities and removing reversible blindness. We work
+              successfully expanding our reach, impact, and partnerships,
+              leveraging our expertise in medical device development, and
+              providing eye care to the underprivileged in the most inaccessible
+              area. There is a myriad of ways to join our mission and we are
+              open to collaborate with any organisation and individual who
+              shares our vision and mission.
               <span className="text-2xl font-bold font-customFont rotate-180 ">
                 &#8221;
               </span>
@@ -167,12 +207,14 @@ function Home() {
           </div>
           <div id="founder-name " className="text-end text-xl my-3">
             <p>- Dr. Swati Tomar </p>
-            <p className="italic text-sm">Cofounder and Director, Innovease India Private Limited</p>
+            <p className="italic text-sm">
+              Cofounder and Director, Innovease India Private Limited
+            </p>
           </div>
         </div>
-        <div className="founder-right">
+        <motion.div className="founder-right" initial="hidden" animate="visible" variants={fadeInVariants}>
           <img src={IMAGES.swati} className="max-h-[400px] h-auto" />
-        </div>
+        </motion.div>
       </div>
       {/* home-sec-5 ends */}
 
@@ -208,17 +250,15 @@ function Home() {
                 }}
                 ref={containerRef}
               >
-                  {data.data.length &&
-                    data.data.map((feedback,index) => (
-                      // <span>
-                        <FeedbackCard
-                          key={index}
-                          feedBackText={feedback.content}
-                          name={feedback.patientName}
-                          patientImage={feedback.patientImage}
-                        />
-                      // {/* </span> */}
-                    ))}
+                {data.data.length &&
+                  data.data.map((feedback, index) => (
+                    <FeedbackCard
+                      key={index}
+                      feedBackText={feedback.content}
+                      name={feedback.patientName}
+                      patientImage={feedback.patientImage}
+                    />
+                  ))}
               </div>
             </div>
             <Link

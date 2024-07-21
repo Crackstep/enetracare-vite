@@ -1,20 +1,49 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Tips.css'; // Ensure you create this CSS file for styling
-// import News from '../News/News'
+
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1 } }
+};
 
 const EyeTips = () => {
   return (
     <div className='eye-tips-wrapper'>
-      <div className='hero-image-container'>
-        <img src="https://images.unsplash.com/photo-1486768801215-35f4fdd73abc?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGV5ZSUyMGhlYWx0aHxlbnwwfHwwfHx8MA%3D%3D" alt="Eye Care" className='hero-image' />
+      <motion.div 
+        className='hero-image-container'
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariants}
+      >
+        <img 
+          src="https://images.unsplash.com/photo-1486768801215-35f4fdd73abc?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGV5ZSUyMGhlYWx0aHxlbnwwfHwwfHx8MA%3D%3D" 
+          alt="Eye Care" 
+          className='hero-image' 
+        />
         <div className='hero-text'>
           <h1 id='eye-tips-title'>Eye Care Tips</h1>
           <p className='hero-subtitle'>Keep your eyes healthy and comfortable with these essential tips.</p>
         </div>
-      </div>
-      <div className='eye-tips-container'>
-        <div className='tips-content'>
-          <img src="https://images.unsplash.com/photo-1614590196476-0c361eb55a91?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGV5ZSUyMGhlYWx0aHxlbnwwfHwwfHx8MA%3D%3D" alt="Eye Care" className='eye-tips-img' />
+      </motion.div>
+
+      <motion.div 
+        className='eye-tips-container'
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariants}
+      >
+        <motion.div 
+          className='tips-content'
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariants}
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1614590196476-0c361eb55a91?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGV5ZSUyMGhlYWx0aHxlbnwwfHwwfHx8MA%3D%3D" 
+            alt="Eye Care" 
+            className='eye-tips-img' 
+          />
           <div className='tips-info'>
             <h2>Top Tips for Healthy Eyes</h2>
             <ul className='tips-list'>
@@ -27,8 +56,15 @@ const EyeTips = () => {
               <li><i className='icon-hygiene'></i>Practice good hygiene, especially if you wear contact lenses.</li>
             </ul>
           </div>
-        </div>
-        {/* <div className='articles-container'>
+        </motion.div>
+
+        {/* Uncomment and style the articles container if needed */}
+        {/* <motion.div 
+          className='articles-container'
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariants}
+        >
           <h2>Popular Journal Articles</h2>
           <div className='articles'>
             <article className='article-item'>
@@ -48,8 +84,8 @@ const EyeTips = () => {
             </article>
             <a href="https://www.nei.nih.gov/learn-about-eye-health/nei-for-kids/healthy-vision-tips" target='_blank' className='see-more'>See more articles</a>
           </div>
-        </div> */}
-      </div>
+        </motion.div> */}
+      </motion.div>
       {/* <div><News/></div> */}
     </div>
   );
