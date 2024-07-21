@@ -56,7 +56,7 @@ const AboutUs = () => {
         initial="hidden"
         animate="visible"
         variants={sectionVariants}
-        className="flex flex-col md:flex-row justify-center gap-8 items-center py-52 px-4 md:px-8 bg-gray-100"
+        className="flex flex-col md:flex-row justify-center gap-4 items-center pt-32 pb-40 px-4 md:px-8 bg-gray-100"
         id='abt-sec-1'
       >
         <motion.div
