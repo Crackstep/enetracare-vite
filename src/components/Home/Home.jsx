@@ -11,6 +11,7 @@ import FeedbackCard from "./FeedbackCard";
 import useSWR from "swr";
 import Loader from "../Loader/Loader";
 import SwatiPic from './images/swati-pic.jpeg'
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -230,6 +231,7 @@ function Home() {
         )}
       </div>
       {/* home-sec-6 ends */}
+      <DeleteModal />
     </div>
   );
 }
