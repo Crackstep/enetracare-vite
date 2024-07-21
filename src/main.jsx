@@ -15,6 +15,7 @@ import Disorder from './components/Disorder/Disorder.jsx'
 import Signup from './components/Signup/Signup.jsx'
 import Login from './components/Login/Login.jsx'
 import { AuthProvider } from './context/AuthProvider.jsx'
+import SetNewPassword from './components/SetPassword/SetNewPassword.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path='patient-resources/tips' element={<Tips />} ></Route>
       <Route path='patient-resources/news' element={<News />} ></Route>
       <Route path='patient-resources/disorder' element={<Disorder />} ></Route>
+      <Route path='change-password' element={<SetNewPassword />} ></Route>
 
       <Route path='login' element={<Login/>} />
       <Route path='signup' element={<Signup />} />
