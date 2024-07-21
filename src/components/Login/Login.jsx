@@ -89,6 +89,7 @@ function Login() {
                     />
                     <button
                       className='text-2xl'
+                      type='button'
                       onClick={() => {
                         if (!isPassVisible) {
                           setIsPassVisible(true)
