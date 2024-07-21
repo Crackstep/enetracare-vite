@@ -25,7 +25,7 @@ function MSEventLeft({ milestone,setId,setMilestone,setOpenUpdateModal,setVisibi
                         </div>
                     </div>
                 </div>
-                {role==="admin" && <div className="absolute top-0 -left-14 flex flex-col items-center space-y-2 pl-4">
+                {role==="admin" && <div className="absolute top-0 hidden md:flex -left-14 flex-col items-center space-y-2 pl-4">
                     <button
                         className="text-gray-500 hover:text-blue-500 focus:outline-none"
                         onClick={handleEdit}

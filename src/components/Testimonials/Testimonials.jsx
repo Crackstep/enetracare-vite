@@ -78,7 +78,7 @@ function Testimonials() {
                   {role === "admin" && (
                     <div className="mt-2 flex gap-2 justify-center">
                       <button
-                        className="text-gray-500 hover:text-blue-500 focus:outline-none"
+                        className="text-gray-500 hidden md:block hover:text-blue-500 focus:outline-none"
                         onClick={() => handleEditModal(testimonial)}
                       >
                         <div className="bg-gray-200 rounded-full p-2">
@@ -86,7 +86,7 @@ function Testimonials() {
                         </div>
                       </button>
                       <button
-                        className="text-gray-500 hover:text-red-500 focus:outline-none"
+                        className="text-gray-500 hidden md:block hover:text-red-500 focus:outline-none"
                         onClick={() => {setVisibility('block');setId(testimonial._id)}}
                       >
                         <div className="bg-gray-200 rounded-full p-2">
@@ -109,7 +109,7 @@ function Testimonials() {
 
             {role === "admin" && (
         <button
-          className={`fixed bottom-10 right-10 bg-[#017F84] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#015f64] ${
+          className={`fixed hidden md:block bottom-10 right-10 bg-[#017F84] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#015f64] ${
             isSubmitting ? "border-4 border-gray-300 animate-spin" : ""
           }`}
           onClick={() => setOpenModal(true)}

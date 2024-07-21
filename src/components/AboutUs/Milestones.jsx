@@ -72,7 +72,7 @@ function Milestones() {
 
       {role === "admin" && (
         <button
-          className={`fixed bottom-10 right-10 bg-[#017F84] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#015f64] ${
+          className={`fixed hidden md:block bottom-10 right-10 bg-[#017F84] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#015f64] ${
             isSubmitting ? "border-4 border-gray-300 animate-spin" : ""
           }`}
           onClick={() => setOpenModal(true)}
