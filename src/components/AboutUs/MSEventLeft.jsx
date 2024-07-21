@@ -1,36 +1,19 @@
 import React from 'react';
 import { LucideEdit, LucideTrash } from 'lucide-react';
 import { useAuth } from '../../context/AuthProvider';
-import Cookies from 'js-cookie';
-import axios from 'axios';
-import { mutate } from 'swr';
 
-function MSEventLeft({milestone,setIsSubmitting,setMilestone,setOpenUpdateModal}) {
+function MSEventLeft({ milestone,setId,setMilestone,setOpenUpdateModal,setVisibility}) {
 
     const {role} = useAuth();
     const handleEdit = ()=>{
         setMilestone(milestone);
         setOpenUpdateModal(true);
     }
-    
-    const handleDelete = async (id) => {
-        try {
-          setIsSubmitting(true);
-          const token = Cookies.get('accessToken');
-          console.log(token);
-          await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/milestones/delete/${id}`, {
-            headers: {
-              'Authorization': `Bearer ${token}`,
-            },
-            withCredentials: true,
-          });
-          mutate(`${import.meta.env.VITE_BACKEND_URL}/milestones`);
-          setIsSubmitting(false);
-        } catch (error) {
-          console.log(error);
-          setIsSubmitting(false);
-        }
-      };
+
+    const handleDelete = ()=>{
+        setId(milestone._id)
+        setVisibility('block');
+    }
 
     return (
         <div className="mt-6 relative">
@@ -42,7 +25,7 @@ function MSEventLeft({milestone,setIsSubmitting,setMilestone,setOpenUpdateModal}
                         </div>
                     </div>
                 </div>
-                {role==="admin" && <div className="absolute top-0 -left-14 flex flex-col items-center space-y-2 pl-4">
+                {role==="admin" && <div className="absolute top-0 hidden md:flex -left-14 flex-col items-center space-y-2 pl-4">
                     <button
                         className="text-gray-500 hover:text-blue-500 focus:outline-none"
                         onClick={handleEdit}

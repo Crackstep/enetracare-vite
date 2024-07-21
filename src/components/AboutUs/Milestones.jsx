@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import MSEventLeft from "./MSEventLeft";
 import MSEventRight from "./MSEventRight";
 import InputModal from "./InputModal";
-import useSWR from "swr";
+import useSWR,{mutate} from "swr";
 import Loader from "../Loader/Loader";
 import { LucidePlus } from 'lucide-react';
 import { useAuth } from "../../context/AuthProvider";
 import UpdateModal from "./UpdateModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -16,10 +19,30 @@ function Milestones() {
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [milestone,setMilestone] = useState({});
+  const [visibility, setVisibility] = useState('hidden');
+  const [id, setId] = useState(null);
   const { data, error, isLoading } = useSWR(
     `${import.meta.env.VITE_BACKEND_URL}/milestones`,
     fetcher
   );
+
+  const handleDelete = async (id) => {
+    try {
+      setIsSubmitting(true);
+      const token = Cookies.get('accessToken');
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/milestones/delete/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+        withCredentials: true,
+      });
+      mutate(`${import.meta.env.VITE_BACKEND_URL}/milestones`);
+      setIsSubmitting(false);
+    } catch (error) {
+      console.log(error);
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="relative bg-[#017F98] flex flex-col py-20 ">
@@ -38,10 +61,10 @@ function Milestones() {
             data?.data?.length &&
             data.data.map((milestone, index) => {
               if (index % 2) {
-                return (<MSEventRight setIsSubmitting={setIsSubmitting} setOpenUpdateModal={setOpenUpdateModal} setMilestone={setMilestone} key={index} milestone={milestone} />)
+                return (<MSEventRight setVisibility={setVisibility} setId={setId} setOpenUpdateModal={setOpenUpdateModal} setMilestone={setMilestone} key={index} milestone={milestone} />)
               }
               else {
-                return (<MSEventLeft setIsSubmitting={setIsSubmitting} setOpenUpdateModal={setOpenUpdateModal} setMilestone={setMilestone} key={index} milestone={milestone} />)
+                return (<MSEventLeft setVisibility={setVisibility} setId={setId} setOpenUpdateModal={setOpenUpdateModal} setMilestone={setMilestone} key={index} milestone={milestone} />)
               }
             })}
         </div>
@@ -49,7 +72,7 @@ function Milestones() {
 
       {role === "admin" && (
         <button
-          className={`fixed bottom-10 right-10 bg-[#017F84] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#015f64] ${
+          className={`fixed hidden md:block bottom-10 right-10 bg-[#017F84] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#015f64] ${
             isSubmitting ? "border-4 border-gray-300 animate-spin" : ""
           }`}
           onClick={() => setOpenModal(true)}
@@ -84,6 +107,10 @@ function Milestones() {
 
       {openModal && <InputModal setOpenModal={setOpenModal} setIsSubmitting={setIsSubmitting} />}
       {openUpdateModal && <UpdateModal setOpenUpdateModal={setOpenUpdateModal} milestone={milestone} setIsSubmitting={setIsSubmitting} />}
+
+    <DeleteModal onDelete={()=>handleDelete(id)} visibility={visibility} setVisibility={setVisibility} />
+
+
     </div>
   );
 }
