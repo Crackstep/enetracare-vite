@@ -9,6 +9,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 function Layout() {
   const {refreshToken,setRefreshToken,role,setRole} = useAuth();
+  console.log("Dev Branch");
   
   useEffect(()=>{
     const refToken = Cookies.get('refreshToken');
