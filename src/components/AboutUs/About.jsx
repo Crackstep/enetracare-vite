@@ -61,7 +61,7 @@ const AboutUs = () => {
       >
         <motion.div
           variants={cardVariants}
-          className="w-full md:w-1/2 p-6 flex justify-center"
+          className="p-6 flex justify-center"
         >
           <img 
             src={IMAGES.Img2} 
