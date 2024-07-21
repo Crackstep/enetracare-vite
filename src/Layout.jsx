@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom'
 import { useAuth } from './context/AuthProvider';
 import Cookies from 'js-cookie';
 import axios from 'axios';
+import ScrollToTop from './components/ScrollToTop';
 
 function Layout() {
   const {refreshToken,setRefreshToken,role,setRole} = useAuth();
@@ -39,6 +40,7 @@ function Layout() {
 
   return (
     <>
+    <ScrollToTop />
       <Header />
       <Outlet />
       <Footer />
