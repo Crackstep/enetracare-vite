@@ -3,11 +3,11 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthProvider';
 import Cookies from 'js-cookie';
-import Logo from './images/navbar-logo.svg'
+import Logo from './images/navbar-logo.svg';
 
 function Login() {
   const [passType, setPassType] = useState('password');
-  const [isPassVisible, setIsPassVisible] = useState(false)
+  const [isPassVisible, setIsPassVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -27,7 +27,7 @@ function Login() {
       console.log(user);
       const refToken = Cookies.get('refreshToken');
       setRefreshToken(refToken);
-      setRole(user.role)
+      setRole(user.role);
       navigate('/');
     } catch (err) {
       if (err.response && err.response.data) {
@@ -39,84 +39,58 @@ function Login() {
   };
 
   return (
-    <div className='bg-[#9fdbe1] text-[#0E9298] min-h-[90vh] flex flex-col items-center justify-center'>
-      <h1 className="text-5xl font-bold py-2 text-center ">Login to eNetraCare</h1>
-      <div className="divider divider-success px-80"></div>
-      <div className='flex hero items-center justify-center gap-16'>
-
-        <img src={Logo} alt="" className='h-60 drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)]' />
-        <div className="">
-          <div className="hero-content flex-col">
-            <div className="text-center">
-              {/* <p className="py-6 w-[30%] mx-auto">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-            quasi. In deleniti eaque aut repudiandae et a id nisi.
-          </p> */}
+    <div className='bg-[#9fdbe1] text-[#0E9298] min-h-screen flex flex-col items-center justify-center px-4'>
+      <div className='flex flex-col items-center justify-center gap-6 mb-8'>
+        <img src={Logo} alt="Logo" className='w-40 md:w-60 drop-shadow-lg' />
+        <h1 className="text-4xl md:text-5xl font-bold text-center">Login to eNetraCare</h1>
+      </div>
+      <div className="w-full max-w-md">
+        <div className="card bg-white bg-opacity-25 shadow-2xl rounded-lg p-6">
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-[#017f84] font-semibold text-lg">Email:</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Enter email"
+                className="input bg-white bg-opacity-35 shadow-md text-[#017f84] outline-none border-none rounded-lg focus:shadow-lg placeholder:text-gray-500"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
-            <div className="card bg-white bg-opacity-25 w-full max-w-sm shrink-0 shadow-2xl">
-              <form className="card-body" onSubmit={handleSubmit}>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-[#017f84] font-semibold text-lg">Email:</span>
-                  </label>
-                  <div className='flex items-center px-1 gap-2'>
-                    <input
-                      type="email"
-                      placeholder="Enter email"
-                      className="input bg-white bg-opacity-35 shadow-md text-[#017f84] outline-none border-none focus:shadow-lg placeholder:text-gray-500 focus:bg-opacity-40 input-bordered"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-
-
-
-                  </div>
-
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-[#017f84] text-lg font-semibold ">Password:</span>
-                  </label>
-                  <div className='flex items-center gap-2 px-2'>
-                    <input
-                      type={passType}
-                      placeholder="Enter password"
-                      className="input bg-white bg-opacity-35 shadow-md text-[#017f84] outline-none border-none placeholder:text-gray-500 focus:shadow-lg focus:bg-opacity-40 input-bordered"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                    <button
-                      className='text-2xl'
-                      type='button'
-                      onClick={() => {
-                        if (!isPassVisible) {
-                          setIsPassVisible(true)
-                          setPassType('text')
-                        }
-                        else {
-                          setPassType('password')
-                          setIsPassVisible(false)
-                        }
-                      }}
-                    >
-                      {
-                        isPassVisible ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>
-                      }
-                    </button>
-                  </div>
-                </div>
-                {error && <p className="text-red-500 text-sm">{error}</p>}
-                <div className="form-control mt-6">
-                  <button className="btn text-white bg-[#0E9298] border-none outline-none shadow-xl hover:bg-white hover:text-[#017f84]">Login</button>
-                </div>
-                <p className="mt-4 text-sm text-center">
-                  <Link to="/signup" className="text-[#0E9298] underline">Forgot password?</Link>
-                </p>
-              </form>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-[#017f84] text-lg font-semibold">Password:</span>
+              </label>
+              <div className='relative'>
+                <input
+                  type={passType}
+                  placeholder="Enter password"
+                  className="input bg-white bg-opacity-35 shadow-md text-[#017f84] outline-none border-none rounded-lg focus:shadow-lg placeholder:text-gray-500 w-full"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button
+                  className='absolute right-2 top-1/2 transform -translate-y-1/2 text-xl'
+                  type='button'
+                  onClick={() => {
+                    setIsPassVisible(!isPassVisible);
+                    setPassType(isPassVisible ? 'password' : 'text');
+                  }}
+                >
+                  {isPassVisible ? <i className="fa-solid fa-eye"></i> : <i className="fa-solid fa-eye-slash"></i>}
+                </button>
+              </div>
             </div>
-          </div>
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+            <button className="btn text-white bg-[#0E9298] border-none rounded-lg shadow-md hover:bg-[#017f84] w-full py-2">Login</button>
+            <p className="mt-4 text-sm text-center">
+              <Link to="/signup" className="text-[#0E9298] underline">Forgot password?</Link>
+            </p>
+          </form>
         </div>
       </div>
     </div>
