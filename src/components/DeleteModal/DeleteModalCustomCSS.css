@@ -1,0 +1,14 @@
+@keyframes popup {
+    from{
+        transform: scale(0.9);
+        opacity: 0.3;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#delete-modal{
+    animation: popup 0.3s ease-in-out; 
+}

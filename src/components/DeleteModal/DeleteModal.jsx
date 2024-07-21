@@ -1,4 +1,5 @@
 import React from 'react';
+import './DeleteModalCustomCSS.css'
 
 function DeleteModal({ onDelete, visibility, setVisibility }) {
   const handleCancel = () => {
@@ -11,7 +12,7 @@ function DeleteModal({ onDelete, visibility, setVisibility }) {
   };
 
   return (
-    <div className={`fixed inset-0 flex justify-center items-center ${visibility} z-50`}>
+    <div className={`fixed inset-0 flex justify-center items-center ${visibility} z-50`} id='delete-modal'>
       <div className='bg-white p-12 flex flex-col gap-4 bg-opacity-65 backdrop-blur-sm shadow-lg rounded-md'>
         <h2 className='text-3xl text-[#017f84]'>Are you sure you want to delete this?</h2>
         <div className='flex gap-4'>
