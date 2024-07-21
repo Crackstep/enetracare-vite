@@ -28,7 +28,7 @@ const EyeTips = () => {
             </ul>
           </div>
         </div>
-        <div className='articles-container'>
+        {/* <div className='articles-container'>
           <h2>Popular Journal Articles</h2>
           <div className='articles'>
             <article className='article-item'>
@@ -48,7 +48,7 @@ const EyeTips = () => {
             </article>
             <a href="https://www.nei.nih.gov/learn-about-eye-health/nei-for-kids/healthy-vision-tips" target='_blank' className='see-more'>See more articles</a>
           </div>
-        </div>
+        </div> */}
       </div>
       {/* <div><News/></div> */}
     </div>
