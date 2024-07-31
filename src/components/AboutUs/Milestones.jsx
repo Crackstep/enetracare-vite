@@ -45,14 +45,14 @@ function Milestones() {
   };
 
   return (
-    <div className="relative bg-[#017F98] flex flex-col py-20 ">
+    <div className="relative bg-[#017F98] flex flex-col py-20">
       <h1 className="text-5xl text-white text-center py-4" id="milestone-title">
         MILESTONES
       </h1>
 
       <div className="py-1 w-full px-2 flex justify-center items-center my-10 ">
         <div
-          className="relative text-gray-700 antialiased text-sm font-semibold"
+          className="relative text-gray-700 antialiased text-sm font-semibold "
           id="events-container"
         >
           <div className="block w-1 bg-white absolute h-full left-1/2 transform -translate-x-1/2"></div>
