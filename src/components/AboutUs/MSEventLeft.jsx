@@ -16,7 +16,7 @@ function MSEventLeft({ milestone,setId,setMilestone,setOpenUpdateModal,setVisibi
     }
 
     return (
-        <div className="mt-6 ml-[30%] relative">
+        <div className="mt-6 relative">
             <div className="flex flex-col sm:flex-row items-center">
                 <div className="flex justify-start w-full mx-auto items-center">
                     <div className="w-1/2 pr-8">
