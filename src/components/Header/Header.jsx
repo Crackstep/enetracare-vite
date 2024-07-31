@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import NavbarLogo from './images/navbar-logo.svg';
 
+
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
@@ -45,13 +46,13 @@ function Header() {
   };
 
   return (
-    <div className='bg-[#DFF7F9] text-[#0E9298]'>
+    <div className='bg-[#DFF7F9] text-[#0E9298] header'>
       <div className='flex items-center justify-between p-3'>
         <div className='flex items-center gap-2'>
           <div>
             <img src={NavbarLogo} alt="Logo" />
           </div>
-          <div className='flex items-start flex-col'>
+          <div className='flex items-start flex-col name '>
             <Link to='/' className='text-3xl font-bold'>eNetraCare</Link>
             <em className="tagline text-sm">A visionary initiative by Innovease India Pvt. Ltd. </em>
           </div>

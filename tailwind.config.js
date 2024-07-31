@@ -1,41 +1,24 @@
-//  @type {import('tailwindcss').Config} 
-
-
-// export default {
-//     content: [
-//       "./index.html",
-//       "./src/**/*.{vue,js,ts,jsx,tsx}",
-//       "path-to-your-node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
-//       "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
-//   ],  theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-
-// }
-
+// tailwind.config.js
 
 const withMT = require("@material-tailwind/react/utils/withMT");
-const { transform } = require("framer-motion");
 
 module.exports = withMT({
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-    "path-to-your-node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
-    "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}", // Fixed to include correct extensions
+    "node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
+    "node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        customFont: ['"News Cycle"', "sans-serif"],
-        customFont2:["Passion One", 'sans-serif'],
-        // Add more custom font families as needed
+        header: ["Kalnia Glaze", 'serif'], // Use header for cursive
+        body: ["Passion One", 'sans-serif'], // Use body for sans-serif
+        footer: ["Passion One", 'serif'], // Use footer for serif if needed
       },
     },
   },
   plugins: [
-    require('daisyui'),
+    require('daisyui'), // Ensure you have this installed
   ],
 });
-
