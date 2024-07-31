@@ -17,7 +17,7 @@ function MSEventRight({ milestone,setId,setMilestone,setOpenUpdateModal,setVisib
     }
 
     return (
-        <div className="mt-6  relative">
+        <div className="mt-6 w-full relative">
             <div className="flex flex-col sm:flex-row items-center text-white">
                 <div className="flex justify-end w-full mx-auto items-center">
                     <div className="w-1/2 pl-8">
