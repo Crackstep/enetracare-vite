@@ -1,5 +1,6 @@
 import React from 'react'
 import './ContactCSS.css'
+import Gallery from '../Gallery/Gallery'
 
 function ContactUs() {
   return (
@@ -37,6 +38,10 @@ function ContactUs() {
             className='hover:scale-110 hover:duration-300 shadow-lg'
           ></iframe>
         </div>
+      </div>
+
+      <div>
+        <Gallery />
       </div>
     </div>
   )

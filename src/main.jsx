@@ -16,6 +16,7 @@ import Signup from './components/Signup/Signup.jsx'
 import Login from './components/Login/Login.jsx'
 import { AuthProvider } from './context/AuthProvider.jsx'
 import SetNewPassword from './components/SetPassword/SetNewPassword.jsx'
+import Gallery from './components/Gallery/Gallery.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,10 +29,11 @@ const router = createBrowserRouter(
       <Route path='patient-resources/disorder' element={<Disorder />} ></Route>
       <Route path='change-password' element={<SetNewPassword />} ></Route>
 
-      <Route path='login' element={<Login/>} />
+      <Route path='login' element={<Login />} />
       <Route path='signup' element={<Signup />} />
       <Route path='testimonials' element={<Testimonials />} />
       <Route path='contact-us' element={<Contact />} />
+      <Route path='gallery' element={<Gallery />} />
     </Route>
   )
 )
@@ -39,7 +41,7 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>,
 )
