@@ -52,7 +52,7 @@ function Milestones() {
 
       <div className="py-1 w-full px-2 flex justify-center items-center my-10 ">
         <div
-          className="relative text-gray-700 antialiased text-sm font-semibold"
+          className="relative text-gray-700 antialiased text-sm font-semibold px-[40vh]"
           id="events-container"
         >
           <div className="block w-1 bg-white absolute h-full left-1/2 transform -translate-x-1/2"></div>
