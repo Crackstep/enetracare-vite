@@ -40,9 +40,6 @@ function ContactUs() {
         </div>
       </div>
 
-      <div>
-        <Gallery />
-      </div>
     </div>
   )
 }
