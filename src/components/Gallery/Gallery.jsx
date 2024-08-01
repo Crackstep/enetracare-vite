@@ -6,7 +6,7 @@ import './GalleryCustomCSS.css'
 function Gallery() {
     return (
         <div className='relative text-[#017f83]'>
-            <h2 className='text-center text-4xl'>Our Gallery</h2>
+            <h2 className='text-center text-4xl py-4'>Our Gallery</h2>
             <div className='grid grid-cols-3 gap-8 p-4' id='gallery-cards-container'>
                 <GalleryCard />
                 <GalleryCard />
