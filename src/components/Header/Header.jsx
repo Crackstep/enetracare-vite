@@ -87,6 +87,7 @@ function Header() {
             )}
           </div>
           <Link className={`px-3 ${getNavLinkClass('/testimonials')}`} to='/testimonials'>Testimonials</Link>
+          <Link className={`px-3 ${getNavLinkClass('/gallery')}`} to='/gallery'>Gallery</Link>
           <Link className={`px-3 ${getNavLinkClass('/contact-us')}`} to='/contact-us'>Contact Us</Link>
         </div>
       </div>
