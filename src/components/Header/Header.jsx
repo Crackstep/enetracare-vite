@@ -46,7 +46,7 @@ function Header() {
   };
 
   return (
-    <div className='bg-[#DFF7F9] text-[#0E9298] '>
+    <div className='bg-[#DFF7F9] text-[#0E9298] baseFont '>
       <div className='flex items-center justify-between p-3'>
         <div className='flex items-center gap-2'>
           <div>

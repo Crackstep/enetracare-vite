@@ -15,6 +15,7 @@ module.exports = withMT({
         header: ["Kalnia Glaze", 'serif'], // Use header for cursive
         body: ["Passion One", 'sans-serif'], // Use body for sans-serif
         footer: ["Passion One", 'serif'], // Use footer for serif if needed
+        baseFont: ["Poppins", 'sans-serif']
       },
     },
   },
