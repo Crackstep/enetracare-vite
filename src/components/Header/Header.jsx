@@ -137,7 +137,7 @@ function Header() {
             <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/testimonials"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
               <Link to='/testimonials' onClick={closeMenu}>Testimonials</Link>
             </motion.div>
-            <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/testimonials"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
+            <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/gallery"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
               <Link to='/gallery' onClick={closeMenu}>Gallery</Link>
             </motion.div>
             <motion.div variants={linkVariants} className={`w-10/12 ${location.pathname==="/contact-us"?"font-semibold":""} text-center bg-white rounded-3xl m-1 py-2`}>
